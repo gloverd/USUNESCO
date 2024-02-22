@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   
   <meta charset="UTF-8">
   <title>Portfolio</title>
@@ -171,40 +171,42 @@ body {
   <div class="ui-group">
     <!--<h3>G:</h3>-->
     <div class="button-group js-radio-button-group" data-filter-group="color">
-      <button class="button is-checked" data-filter="">both</button>
-      <button class="button" data-filter=".female">female</button>
-      <button class="button" data-filter=".male">male</button>
+      <button class="button is-checked" data-filter="">All</button>
+      <button class="button" data-filter=".male">Male</button>
+      <button class="button" data-filter=".female">Female</button>
     </div>
+  </div>
+  <div class="ui-group">
+    <!--<h3>hair</h3>-->
     <div class="button-group js-radio-button-group" data-filter-group="shape">
       <button class="button is-checked" data-filter="">All</button>
-      <button class="button" data-filter=".black" style="font-size:8;">⬛</button>
+      <button class="button" data-filter=".black">⬛</button>
       <button class="button" data-filter=".brown">🟫</button>
       <button class="button" data-filter=".blonde">🟨</button>
       <button class="button" data-filter=".grey">⬜</button>
     </div>
   </div>
-
   <div class="ui-group">
     <!--<h3>Grp</h3>-->
     <div class="button-group js-radio-button-group" data-filter-group="size">
-      <button class="button is-checked" data-filter="">All</button>
-      <button class="button" data-filter=".grp1">I</button>
-      <button class="button" data-filter=".grp2">II</button>
-      <button class="button" data-filter=".grp3">III</button>
-      <button class="button" data-filter=".grp4">IV</button>
-      <button class="button" data-filter=".grp5a">V(a)</button>
-      <button class="button" data-filter=".grp5b">V(b)</button>
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".grp1">1</button>
+      <button class="button" data-filter=".grp2">2</button>
+      <button class="button" data-filter=".grp3">3</button>
+      <button class="button" data-filter=".grp4">4</button>
+      <button class="button" data-filter=".grp5a">5a</button>
+      <button class="button" data-filter=".grp5b">5b</button>
     </div>
   </div>
-  
 </div>
-<div id="sorts" class="ui-group">
-  <div class="button-group sort-by-button-group">
-    <button class="button is-checked" data-sort-value="original-order">original</button>
-    <button class="button" data-sort-value="first">first</button>
-    <button class="button" data-sort-value="last">last</button>
-    <button class="button" data-sort-value="country">country</button>
-  </div>
+  <div id="sorts" class="ui-group">
+<div class="button-group sort-by-button-group">
+  <button class="button is-checked" data-sort-value="original-order">original</button>
+  <button class="button" data-sort-value="first">first</button>
+  <button class="button" data-sort-value="last">last</button>
+  <button class="button" data-sort-value="country">country</button>
+
+</div>
 </div>
 
 <div class="grid">
