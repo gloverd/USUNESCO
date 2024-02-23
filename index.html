@@ -2,305 +2,303 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
-  
   <meta charset="UTF-8">
-  <title>Portfolio</title>
-
+  <title>US UNESCO Face Book</title>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-  
+
   <style>
-* { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-body {
-  font-family: sans-serif;
-  margin-top: 90px; /* Ensure content starts below the fixed header */
-}
+    body {
+      font-family: sans-serif;
+      margin-top: 90px; /* Ensure content starts below the fixed header */
+    }
 
-/* ---- button ---- */
+    /* ---- button ---- */
 
-.button {
-  display: inline-block;
-  padding: 0.25em 0.5em;
-  background: #EEE;
-  border: none;
-  border-radius: 7px;
-  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
-  color: #222;
-  font-family: sans-serif;
-  font-size: 16px;
-  text-shadow: 0 1px white;
-  cursor: pointer;
-}
+    .button {
+      display: inline-block;
+      padding: 0.25em 0.5em;
+      background: #EEE;
+      border: none;
+      border-radius: 7px;
+      background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+      color: #222;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-shadow: 0 1px white;
+      cursor: pointer;
+    }
 
-.button:hover {
-  background-color: #8CF;
-  text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
-  color: #222;
-}
+    .button:hover {
+      background-color: #8CF;
+      text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+      color: #222;
+    }
 
-.button:active,
-.button.is-checked {
-  background-color: #28F;
-}
+    .button:active,
+    .button.is-checked {
+      background-color: #28F;
+    }
 
-.button.is-checked {
-  color: white;
-  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
-}
+    .button.is-checked {
+      color: white;
+      text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+    }
 
-.button:active {
-  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
-}
+    .button:active {
+      box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+    }
 
-/* ---- button-group ---- */
-.filters {
+    /* ---- button-group ---- */
+    .filters {
       position: fixed;
       top: 0px;
       width: 100%;
-      
+
       background-color: white;
       z-index: 1000; /* Ensures it stays above other content */
     }
-.button-group:after {
-  content: '';
-  display: block;
-  clear: both;
-}
+    .button-group:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
 
-.button-group .button {
-  float: left;
-  border-radius: 0;
-  margin-left: 0;
-  margin-right: 1px;
-}
+    .button-group .button {
+      float: left;
+      border-radius: 0;
+      margin-left: 0;
+      margin-right: 1px;
+    }
 
-.button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
-.button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+    .button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
+    .button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
 
-/* ---- isotope ---- */
+    /* ---- isotope ---- */
 
-.grid {
-  background: #EEE;
-  max-width: 100%;
-}
+    .grid {
+      background: #EEE;
+      max-width: 100%;
+    }
 
-/* clear fix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
+    /* clear fix */
+    .grid:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
 
-/* ui group */
+    /* ui group */
 
-.ui-group {
-  display: inline-block;
-  align-items: center; /* Vertically center items */
-  margin-top:0px;
-  margin-bottom:0px;
-}
+    .ui-group {
+      display: inline-block;
+      align-items: center; /* Vertically center items */
+      margin-top:0px;
+      margin-bottom:0px;
+    }
 
-.ui-group h3 {
-  display: inline-block;
-  margin-right: 0.2em;
-  margin-top:0px;
-  margin-bottom:0px;
-  font-size: 16px;
-}
+    .ui-group h3 {
+      display: inline-block;
+      margin-right: 0.2em;
+      margin-top:0px;
+      margin-bottom:0px;
+      font-size: 16px;
+    }
 
-.ui-group .button-group {
-  display: inline-block;
-  margin-right: 20px;
-}
+    .ui-group .button-group {
+      display: inline-block;
+      margin-right: 20px;
+    }
 
-/* color-shape */
+    /* color-shape */
 
-.color-shape {
-  width: 175px;
-  min-height: 300px;
-  margin: 5px 2px;
-  float: left;
-}
- 
-.color-shape.round {
-  border-radius: 35px;
-}
- 
-.color-shape.big.round {
-  border-radius: 75px;
-}
- 
-.color-shape.red { background: red; }
-.color-shape.blue { background: blue; }
-.color-shape.yellow { background: yellow; }
- 
-.color-shape img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Adjust as needed */
-}
-.color-shape h1, .color-shape h2, .color-shape p{
-  margin: 0 0 0 10px;
-}
+    .color-shape {
+      width: 175px;
+      min-height: 300px;
+      margin: 5px 2px;
+      float: left;
+    }
 
-.color-shape h3 {
- margin:0px;
-}
+    .color-shape.round {
+      border-radius: 35px;
+    }
 
-.countylabel {
-  background-color: #ddd;
-  border: none;
-  color: black;
-  padding: 2px 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 16px;
-}
+    .color-shape.big.round {
+      border-radius: 75px;
+    }
+
+    .color-shape.red { background: red; }
+    .color-shape.blue { background: blue; }
+    .color-shape.yellow { background: yellow; }
+
+    .color-shape img {
+      width: 100%;
+      height: auto;
+      object-fit: cover; /* Adjust as needed */
+    }
+    .color-shape h1, .color-shape h2, .color-shape p{
+      margin: 0 0 0 10px;
+    }
+
+    .color-shape h3 {
+      margin:0px;
+    }
+
+    .countylabel {
+      background-color: #ddd;
+      border: none;
+      color: black;
+      padding: 2px 4px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 16px;
+    }
 
   </style>
 </head>
 <body>
-  
-<!--<h1>Face Book</h1>-->
 
-<div id="filters" class="filters">
-  <div class="ui-group">
-    <!--<h3>G:</h3>-->
-    <div class="button-group js-radio-button-group" data-filter-group="color">
-      <button class="button is-checked" data-filter="">All</button>
-      <button class="button" data-filter=".male">Male</button>
-      <button class="button" data-filter=".female">Female</button>
+  <!--<h1>Face Book</h1>-->
+
+  <div id="filters" class="filters">
+    <div class="ui-group">
+      <!--<h3>G:</h3>-->
+      <div class="button-group js-radio-button-group" data-filter-group="color">
+        <button class="button is-checked" data-filter="">All</button>
+        <button class="button" data-filter=".male">Male</button>
+        <button class="button" data-filter=".female">Female</button>
+      </div>
+    </div>
+    <div class="ui-group">
+      <!--<h3>hair</h3>-->
+      <div class="button-group js-radio-button-group" data-filter-group="shape">
+        <button class="button is-checked" data-filter="">All</button>
+        <button class="button" data-filter=".black" style="font-size:13px;">⬛</button>
+        <button class="button" data-filter=".brown" style="font-size:13px;">🟫</button>
+        <button class="button" data-filter=".blonde" style="font-size:13px;">🟨</button>
+        <button class="button" data-filter=".grey" style="font-size:13px;">⬜</button>
+      </div>
+    </div>
+    <div class="ui-group">
+      <!--<h3>Grp</h3>-->
+      <div class="button-group js-radio-button-group" data-filter-group="size">
+        <button class="button is-checked" data-filter="">All</button>
+        <button class="button" data-filter=".grp1">I</button>
+        <button class="button" data-filter=".grp2">II</button>
+        <button class="button" data-filter=".grp3">III</button>
+        <button class="button" data-filter=".grp4">IV</button>
+        <button class="button" data-filter=".grp5a">V(a)</button>
+        <button class="button" data-filter=".grp5b">V(b)</button>
+      </div>
     </div>
   </div>
-  <div class="ui-group">
-    <!--<h3>hair</h3>-->
-    <div class="button-group js-radio-button-group" data-filter-group="shape">
-      <button class="button is-checked" data-filter="">All</button>
-      <button class="button" data-filter=".black" style="font-size:13px;">⬛</button>
-      <button class="button" data-filter=".brown" style="font-size:13px;">🟫</button>
-      <button class="button" data-filter=".blonde" style="font-size:13px;">🟨</button>
-      <button class="button" data-filter=".grey" style="font-size:13px;">⬜</button>
+  <div id="sorts" class="ui-group">
+    Sort by:
+    <div class="button-group sort-by-button-group">
+      <button class="button" data-sort-value="first">First Name</button>
+      <button class="button" data-sort-value="last">Last Name</button>
+      <button class="button is-checked" data-sort-value="country">Country</button>
+
     </div>
   </div>
-  <div class="ui-group">
-    <!--<h3>Grp</h3>-->
-    <div class="button-group js-radio-button-group" data-filter-group="size">
-      <button class="button is-checked" data-filter="">All</button>
-      <button class="button" data-filter=".grp1">I</button>
-      <button class="button" data-filter=".grp2">II</button>
-      <button class="button" data-filter=".grp3">III</button>
-      <button class="button" data-filter=".grp4">IV</button>
-      <button class="button" data-filter=".grp5a">V(a)</button>
-      <button class="button" data-filter=".grp5b">V(b)</button>
-    </div>
+
+  <div class="grid">
+
+
+    <div class="color-shape female brown grp1" country="Turkey"><img src="gulnur.jpg"><h3><span class="first">Gulnur</span> <span class="last">ABYET</span></h3><button class="countylabel ">Turkey</button><p class="title">Ambassador of Turkey to UNESCO</p></div>
+    <div class="color-shape male grey grp5b" country="Oman"><img src="alhamami.PNG"><h3><span class="first">Hamed</span> <span class="last">AL HAMAMI</span></h3><button class="countylabel ">Oman</button><p class="title">Ambassador of Oman to UNESCO</p></div>
+    <div class="color-shape male black grp5b" country="Qatar"><img src="almulla.PNG"><h3><span class="first">Hassan</span> <span class="last">AL MULLA</span></h3><button class="countylabel ">Qatar</button><p class="title">Deputy in charge of Culture, UNESCO delegation of Qatar</p></div>
+    <div class="color-shape female blonde grp4" country="Australia"><img src="greer.PNG"><h3><span class="first">Greer Anne</span> <span class="last">ALBLAS</span></h3><button class="countylabel ">Australia</button><p class="title">Ambassador of Australia to UNESCO</p></div>
+    <div class="color-shape female brown grp1" country="Austria"><img src="figl.jpg"><h3><span class="first">Regina</span> <span class="last">FIGL</span></h3><button class="countylabel ">Austria</button><p class="title">Amb Austria to UNESCO</p></div>
+    <div class="color-shape female black grp3" country="Brazil"><img src="alvesdesouza.jpg"><h3><span class="first">Paula</span> <span class="last">ALVES DE SOUZA</span></h3><button class="countylabel ">Brazil</button><p class="title">Amb Brazil to UNESCO</p></div>
+    <div class="color-shape male black grp5b" country="Saudi Arabia"><img src="altayar.PNG"><h3><span class="first">Fahad</span> <span class="last">ALTAYAR</span></h3><button class="countylabel ">Saudi Arabia</button><p class="title">Senior Consultant for the Saudi Arabia UNESCO Delegation</p></div>
+    <div class="color-shape female black grp4" country="Korea"><img src="bak.PNG"><h3><span class="first">Sang Mee</span> <span class="last">BAK</span></h3><button class="countylabel ">Korea</button><p class="title">Ambassador of the Republic of Korea to UNESCO</p></div>
+    <div class="color-shape female brown grp1" country="Lithuania"><img src="jolanta.PNG"><h3><span class="first">Jolanta</span> <span class="last">BALČIŪNIENĖ</span></h3><button class="countylabel ">Lithuania</button><p class="title">Ambassador of Lithuania to UNESCO</p></div>
+    <div class="color-shape male black grp1" country="Spain"><img src="miquel.jpg"><h3><span class="first">Miquel</span> <span class="last">ICETA I LLORENS</span></h3><button class="countylabel ">Spain</button><p class="title">Ambassador of Spain to UNESCO</p></div>
+    <div class="color-shape female brown grp1" country="Albania"><img src="kadare.PNG"><h3><span class="first">Besiana</span> <span class="last">KADARE</span></h3><button class="countylabel ">Albania</button><p class="title">Ambassador of albania to UNESCO</p></div>
+    <div class="color-shape male black grp4" country="Japan"><img src="kano.PNG"><h3><span class="first">Takehiro</span> <span class="last">KANO</span></h3><button class="countylabel ">Japan</button><p class="title">Ambassador of Japan to UNESCO</p></div>
+    <div class="color-shape female blonde grp1" country="Iceland"><img src="halla.jpg"><h3><span class="first">Kristin Halla</span> <span class="last">KRISTINSDOTTIR GRÖNDAL</span></h3><button class="countylabel ">Iceland</button><p class="title">Deputy Permanent Delegate of Iceland to UNESCO</p></div>
+    <div class="color-shape male grey grp1" country="Germany"><img src="axel.PNG"><h3><span class="first">Axel</span> <span class="last">KÜCHLE</span></h3><button class="countylabel ">Germany</button><p class="title">CDA a.i. of Germany to UNESCO</p></div>
+    <div class="color-shape female black grp3" country="Saint Lucia"><img src="vera.PNG"><h3><span class="first">Véra</span> <span class="last">LACOEUILHE</span></h3><button class="countylabel ">Saint Lucia</button><p class="title">Deputy Permanent Delegate of Sainte-Lucie to UNESCO</p></div>
+    <div class="color-shape male blonde grp2" country="Ukraine"><img src="mykola.PNG"><h3><span class="first">Mykola</span> <span class="last">MOVCHAN</span></h3><button class="countylabel ">Ukraine</button><p class="title">Deputy Permanent Delegate of Ukraine to UNESCO</p></div>
+    <div class="color-shape female black grp1" country="United Kingdom"><img src="nsubuga.PNG"><h3><span class="first">Anna</span> <span class="last">NSUBUGA</span></h3><button class="countylabel ">United Kingdom</button><p class="title">Ambassador and Permanent Delegate of Great Britain and Northern Ireland to UNESCO</p></div>
+    <div class="color-shape female black grp3" country="Paraguay"><img src="ovelar.PNG"><h3><span class="first">Nancy</span> <span class="last">OVELAR DE GOROSTIAGA</span></h3><button class="countylabel ">Paraguay</button><p class="title">Ambassador of Paraguay to UNESCO</p></div>
+    <div class="color-shape male grey grp2" country="Estonia"><img src="priit.PNG"><h3><span class="first">Priit</span> <span class="last">PALLUM</span></h3><button class="countylabel ">Estonia</button><p class="title">Ambassador of Estonia to OECD</p></div>
+    <div class="color-shape female brown grp2" country="Slovakia"><img src="murinova.PNG"><h3><span class="first">Anna</span> <span class="last">PLASSAT MURINOVA</span></h3><button class="countylabel ">Slovakia</button><p class="title">Ambassador of Slovakia to UNESCO</p></div>
+    <div class="color-shape male black grp1" country="United Kingdom"><img src="polyavitry.PNG"><h3><span class="first">Maxim</span> <span class="last">POLYA-VITRY</span></h3><button class="countylabel ">United Kingdom</button><p class="title">Deputy Permanent Delegate of Great Britain and Northern Ireland to UNESCO</p></div>
+    <div class="color-shape female brown grp2" country="Serbia"><img src="popovic.PNG"><h3><span class="first">Aleksandra</span> <span class="last">POPOVIC</span></h3><button class="countylabel ">Serbia</button><p class="title">CDA of Serbia to UNESCO</p></div>
+    <div class="color-shape female blonde grp4" country="New Zealand"><img src="reid.PNG"><h3><span class="first">Nicola</span> <span class="last">REID</span></h3><button class="countylabel ">New Zealand</button><p class="title">Permanent Delagate, Embassy of New-Zealand</p></div>
+    <div class="color-shape female brown grp4" country="Cook Islands"><img src="rosette.PNG"><h3><span class="first">Nathalie</span> <span class="last">ROSSETTE-CAZEL</span></h3><button class="countylabel ">Cook Islands</button><p class="title">Ambassador of the Cook Islands to UNSCO</p></div>
+    <div class="color-shape male grey grp1" country="Italy"><img src="stellino.PNG"><h3><span class="first">Liborio</span> <span class="last">STELLINO</span></h3><button class="countylabel ">Italy</button><p class="title">Ambassador of Italia to UNESCO</p></div>
+    <div class="color-shape female blonde grp2" country="Czech Republic"><img src="jirina.PNG"><h3><span class="first">Jirina</span> <span class="last">VALENTOVA</span></h3><button class="countylabel ">Czech Republic</button><p class="title">Ambassador of the Czech Republic to UNESCO</p></div>
+
+
   </div>
-</div>
-<div id="sorts" class="ui-group">
-  Sort by:
-  <div class="button-group sort-by-button-group">
-    <button class="button" data-sort-value="first">First Name</button>
-    <button class="button" data-sort-value="last">Last Name</button>
-    <button class="button is-checked" data-sort-value="country">Country</button>
 
-</div>
-</div>
+  <script type="text/javascript">
+    // external js: isotope.pkgd.js
 
-<div class="grid">
+    // init Isotope
+    var $grid = $('.grid').isotope({
+      itemSelector: '.color-shape',
+      layoutMode: 'fitRows',
+      getSortData: {
+        first: '.first',
+        last: '.last',
+        country: '[country]'
+      }
+    });
 
-
-<div class="color-shape female brown grp1" country="Turkey"><img src="gulnur.jpg"><h3><span class="first">Gulnur</span> <span class="last">ABYET</span></h3><button class="countylabel ">Turkey</button><p class="title">Ambassador of Turkey to UNESCO</p></div> 
-<div class="color-shape male grey grp5b" country="Oman"><img src="alhamami.PNG"><h3><span class="first">Hamed</span> <span class="last">AL HAMAMI</span></h3><button class="countylabel ">Oman</button><p class="title">Ambassador of Oman to UNESCO</p></div> 
-<div class="color-shape male black grp5b" country="Qatar"><img src="almulla.PNG"><h3><span class="first">Hassan</span> <span class="last">AL MULLA</span></h3><button class="countylabel ">Qatar</button><p class="title">Deputy in charge of Culture, UNESCO delegation of Qatar</p></div> 
-<div class="color-shape female blonde grp4" country="Australia"><img src="greer.PNG"><h3><span class="first">Greer Anne</span> <span class="last">ALBLAS</span></h3><button class="countylabel ">Australia</button><p class="title">Ambassador of Australia to UNESCO</p></div> 
-<div class="color-shape female brown grp1" country="Austria"><img src="figl.jpg"><h3><span class="first">Regina</span> <span class="last">FIGL</span></h3><button class="countylabel ">Austria</button><p class="title">Amb Austria to UNESCO</p></div> 
-<div class="color-shape female black grp3" country="Brazil"><img src="alvesdesouza.jpg"><h3><span class="first">Paula</span> <span class="last">ALVES DE SOUZA</span></h3><button class="countylabel ">Brazil</button><p class="title">Amb Brazil to UNESCO</p></div> 
-<div class="color-shape male black grp5b" country="Saudi Arabia"><img src="altayar.PNG"><h3><span class="first">Fahad</span> <span class="last">ALTAYAR</span></h3><button class="countylabel ">Saudi Arabia</button><p class="title">Senior Consultant for the Saudi Arabia UNESCO Delegation</p></div> 
-<div class="color-shape female black grp4" country="Korea"><img src="bak.PNG"><h3><span class="first">Sang Mee</span> <span class="last">BAK</span></h3><button class="countylabel ">Korea</button><p class="title">Ambassador of the Republic of Korea to UNESCO</p></div> 
-<div class="color-shape female brown grp1" country="Lithuania"><img src="jolanta.PNG"><h3><span class="first">Jolanta</span> <span class="last">BALČIŪNIENĖ</span></h3><button class="countylabel ">Lithuania</button><p class="title">Ambassador of Lithuania to UNESCO</p></div> 
-<div class="color-shape male black grp1" country="Spain"><img src="miquel.jpg"><h3><span class="first">Miquel</span> <span class="last">ICETA I LLORENS</span></h3><button class="countylabel ">Spain</button><p class="title">Ambassador of Spain to UNESCO</p></div> 
-<div class="color-shape female brown grp1" country="Albania"><img src="kadare.PNG"><h3><span class="first">Besiana</span> <span class="last">KADARE</span></h3><button class="countylabel ">Albania</button><p class="title">Ambassador of albania to UNESCO</p></div> 
-<div class="color-shape male black grp4" country="Japan"><img src="kano.PNG"><h3><span class="first">Takehiro</span> <span class="last">KANO</span></h3><button class="countylabel ">Japan</button><p class="title">Ambassador of Japan to UNESCO</p></div> 
-<div class="color-shape female blonde grp1" country="Iceland"><img src="halla.jpg"><h3><span class="first">Kristin Halla</span> <span class="last">KRISTINSDOTTIR GRÖNDAL</span></h3><button class="countylabel ">Iceland</button><p class="title">Deputy Permanent Delegate of Iceland to UNESCO</p></div> 
-<div class="color-shape male grey grp1" country="Germany"><img src="axel.PNG"><h3><span class="first">Axel</span> <span class="last">KÜCHLE</span></h3><button class="countylabel ">Germany</button><p class="title">CDA a.i. of Germany to UNESCO</p></div> 
-<div class="color-shape female black grp3" country="Saint Lucia"><img src="vera.PNG"><h3><span class="first">Véra</span> <span class="last">LACOEUILHE</span></h3><button class="countylabel ">Saint Lucia</button><p class="title">Deputy Permanent Delegate of Sainte-Lucie to UNESCO</p></div> 
-<div class="color-shape male blonde grp2" country="Ukraine"><img src="mykola.PNG"><h3><span class="first">Mykola</span> <span class="last">MOVCHAN</span></h3><button class="countylabel ">Ukraine</button><p class="title">Deputy Permanent Delegate of Ukraine to UNESCO</p></div> 
-<div class="color-shape female black grp1" country="United Kingdom"><img src="nsubuga.PNG"><h3><span class="first">Anna</span> <span class="last">NSUBUGA</span></h3><button class="countylabel ">United Kingdom</button><p class="title">Ambassador and Permanent Delegate of Great Britain and Northern Ireland to UNESCO</p></div> 
-<div class="color-shape female black grp3" country="Paraguay"><img src="ovelar.PNG"><h3><span class="first">Nancy</span> <span class="last">OVELAR DE GOROSTIAGA</span></h3><button class="countylabel ">Paraguay</button><p class="title">Ambassador of Paraguay to UNESCO</p></div> 
-<div class="color-shape male grey grp2" country="Estonia"><img src="priit.PNG"><h3><span class="first">Priit</span> <span class="last">PALLUM</span></h3><button class="countylabel ">Estonia</button><p class="title">Ambassador of Estonia to OECD</p></div> 
-<div class="color-shape female brown grp2" country="Slovakia"><img src="murinova.PNG"><h3><span class="first">Anna</span> <span class="last">PLASSAT MURINOVA</span></h3><button class="countylabel ">Slovakia</button><p class="title">Ambassador of Slovakia to UNESCO</p></div> 
-<div class="color-shape male black grp1" country="United Kingdom"><img src="polyavitry.PNG"><h3><span class="first">Maxim</span> <span class="last">POLYA-VITRY</span></h3><button class="countylabel ">United Kingdom</button><p class="title">Deputy Permanent Delegate of Great Britain and Northern Ireland to UNESCO</p></div> 
-<div class="color-shape female brown grp2" country="Serbia"><img src="popovic.PNG"><h3><span class="first">Aleksandra</span> <span class="last">POPOVIC</span></h3><button class="countylabel ">Serbia</button><p class="title">CDA of Serbia to UNESCO</p></div> 
-<div class="color-shape female blonde grp4" country="New Zealand"><img src="reid.PNG"><h3><span class="first">Nicola</span> <span class="last">REID</span></h3><button class="countylabel ">New Zealand</button><p class="title">Permanent Delagate, Embassy of New-Zealand</p></div> 
-<div class="color-shape female brown grp4" country="Cook Islands"><img src="rosette.PNG"><h3><span class="first">Nathalie</span> <span class="last">ROSSETTE-CAZEL</span></h3><button class="countylabel ">Cook Islands</button><p class="title">Ambassador of the Cook Islands to UNSCO</p></div> 
-<div class="color-shape male grey grp1" country="Italy"><img src="stellino.PNG"><h3><span class="first">Liborio</span> <span class="last">STELLINO</span></h3><button class="countylabel ">Italy</button><p class="title">Ambassador of Italia to UNESCO</p></div> 
-<div class="color-shape female blonde grp2" country="Czech Republic"><img src="jirina.PNG"><h3><span class="first">Jirina</span> <span class="last">VALENTOVA</span></h3><button class="countylabel ">Czech Republic</button><p class="title">Ambassador of the Czech Republic to UNESCO</p></div> 
+    // bind sort button click
+    $('#sorts').on( 'click', 'button', function() {
+      var sortValue = $(this).attr('data-sort-value');
+      $grid.isotope({ sortBy: sortValue });
+    });
 
 
-</div>
+    // store filter for each group
+    var filters = {};
 
-<script type="text/javascript"> 
- // external js: isotope.pkgd.js
+    $('#filters').on( 'click', '.button', function( event ) {
+      var $button = $( event.currentTarget );
+      // get group key
+      var $buttonGroup = $button.parents('.button-group');
+      var filterGroup = $buttonGroup.attr('data-filter-group');
+      // set filter for group
+      filters[ filterGroup ] = $button.attr('data-filter');
+      // combine filters
+      var filterValue = concatValues( filters );
+      // set filter for Isotope
+      $grid.isotope({ filter: filterValue });
+    });
 
-// init Isotope
-var $grid = $('.grid').isotope({
-  itemSelector: '.color-shape',
-  layoutMode: 'fitRows',
-  getSortData: {
-    first: '.first',
-    last: '.last',
-    country: '[country]'
-}
-});
-
-// bind sort button click
-$('#sorts').on( 'click', 'button', function() {
-  var sortValue = $(this).attr('data-sort-value');
-  $grid.isotope({ sortBy: sortValue });
-});
-
-
-// store filter for each group
-var filters = {};
-
-$('#filters').on( 'click', '.button', function( event ) {
-  var $button = $( event.currentTarget );
-  // get group key
-  var $buttonGroup = $button.parents('.button-group');
-  var filterGroup = $buttonGroup.attr('data-filter-group');
-  // set filter for group
-  filters[ filterGroup ] = $button.attr('data-filter');
-  // combine filters
-  var filterValue = concatValues( filters );
-  // set filter for Isotope
-  $grid.isotope({ filter: filterValue });
-});
-
-// change is-checked class on buttons
-$('.button-group').each( function( i, buttonGroup ) {
-  var $buttonGroup = $( buttonGroup );
-  $buttonGroup.on( 'click', 'button', function( event ) {
-    $buttonGroup.find('.is-checked').removeClass('is-checked');
-    var $button = $( event.currentTarget );
-    $button.addClass('is-checked');
-  });
-});
+    // change is-checked class on buttons
+    $('.button-group').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( buttonGroup );
+      $buttonGroup.on( 'click', 'button', function( event ) {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        var $button = $( event.currentTarget );
+        $button.addClass('is-checked');
+      });
+    });
 
 
-  
-// flatten object by concatting values
-function concatValues( obj ) {
-  var value = '';
-  for ( var prop in obj ) {
-    value += obj[ prop ];
-  }
-  return value;
-}
 
-</script>
+    // flatten object by concatting values
+    function concatValues( obj ) {
+      var value = '';
+      for ( var prop in obj ) {
+        value += obj[ prop ];
+      }
+      return value;
+    }
+
+  </script>
 
 </body>
 </html>
