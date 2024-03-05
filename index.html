@@ -8,6 +8,13 @@
   <script type="text/javascript" src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
   <style>
+    :root {
+      --cell-width: 115px; /*175/2, 115/3*/
+      --min-cell-height: 250px; /* 300/2, 250/3 */
+      --img-max-height: 115px; /* 175/2,  115/3*/
+    } 
+
+
     * { box-sizing: border-box; }
 
     body {
@@ -115,8 +122,8 @@
     /* color-shape */
 
     .color-shape {
-      width: 175px;
-      min-height: 300px;
+      width: var(--cell-width);
+      min-height: var(--min-cell-height);
       margin: 5px 2px;
       float: left;
     }
@@ -136,6 +143,7 @@
     .color-shape img {
       width: 100%;
       height: auto;
+      max-height: var(--img-max-height);
       object-fit: cover; /* Adjust as needed */
     }
     .color-shape h1, .color-shape h2, .color-shape p{
