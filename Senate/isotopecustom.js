@@ -20,6 +20,14 @@ $(document).ready(function() {
         $gallery.isotope({ sortBy: sortByValue });
     });
 
+      // flatten object by concatting values
+    function concatValues( obj ) {
+      var value = '';
+      for ( var prop in obj ) {
+        value += obj[ prop ];
+      }
+      return value;
+    }
 
     // store filter for each group
     var filters = {};
@@ -36,14 +44,7 @@ $(document).ready(function() {
       $gallery.isotope({ filter: filterValue });
     });
 
-        // flatten object by concatting values
-    function concatValues( obj ) {
-      var value = '';
-      for ( var prop in obj ) {
-        value += obj[ prop ];
-      }
-      return value;
-    }
+      
 
         // change is-checked class on buttons
     $('.button-group').each( function( i, buttonGroup ) {
