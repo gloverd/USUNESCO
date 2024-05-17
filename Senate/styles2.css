@@ -1,7 +1,6 @@
 :root {
-      --cell-width: 150px; /*175/2, 115/3*/
-      --min-cell-height: 250px; /* 300/2, 250/3 */
-      --img-max-height: 115px; /* 175/2,  115/3*/
+      --cell-width: 200px; /*175/2, 115/3*/
+      --img-height: 250px; /* 175/2,  115/3*/
     } 
 
 
@@ -103,7 +102,7 @@ body {
 }
 
 .card {
-    width: 250px;
+    width: var(--cell-width);
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
@@ -124,7 +123,7 @@ body {
 
 .card-image {
     width: 100%;
-    height: var(--cell-width); /* Set a fixed height for the image */
+    height: var(--img-height); /* Set a fixed height for the image */
     object-fit: cover;
     object-position: center top;
 }
@@ -156,7 +155,7 @@ body {
     flex-wrap: wrap;
     padding-bottom: 16px;
     margin-top: -36px;
-justify-content: space-between;
+    justify-content: space-between;
 }
 
 .chip {
