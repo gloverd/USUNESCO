@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
 .header {
@@ -13,8 +14,8 @@ body {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    width: 100%;
-    max-width: 1200px;
+    width: 100%; /* Ensure the header takes full width */
+    max-width: 1200px; /* Center header within a max-width */
 }
 
 .header h1 {
