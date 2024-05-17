@@ -1,17 +1,7 @@
-body { <!--
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh; -->
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #f4f4f4;
-}
 }
 
 .header {
@@ -20,6 +10,9 @@ body {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header h1 {
@@ -51,14 +44,15 @@ body {
 .header-buttons button:hover {
     background-color: #0056b3;
 }
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 16px;
     padding: 20px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto; /* Center the gallery */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
@@ -73,7 +67,10 @@ body {
 
 .card-image {
     width: 100%;
-    height: auto;
+    height: 0;
+    padding-bottom: 100%; /* This makes the image container square */
+    object-fit: cover;
+    object-position: center top;
 }
 
 .card-body {
