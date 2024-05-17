@@ -189,3 +189,48 @@ body {
     .card {width: var(--cell-width-mobile);}
     .card-image {height: var( --img-height-mobile);}
 }
+
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: #fff;
+        margin: 0;
+    }
+    .header,
+    .header-buttons {
+        display: none; /* Hide the header and buttons in print */
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust column size for print */
+        gap: 10px; /* Reduce gap size for print */
+        padding: 10px; /* Reduce padding for print */
+    }
+
+    .card {
+        border: 1px solid #000; /* Use black border for better print visibility */
+        box-shadow: none; /* Remove box-shadow for print */
+        page-break-inside: avoid; /* Avoid breaking the card across pages */
+    }
+
+    .card-image {
+        height: 150px; /* Adjust image height for print */
+    }
+
+    .card-body {
+        padding: 10px; /* Adjust padding for print */
+    }
+
+    .name,
+    .title,
+    .description {
+        font-size: 12px; /* Reduce font size for print */
+    }
+
+    .chips .chip {
+        font-size: 10px; /* Reduce chip font size for print */
+        padding: 5px; /* Adjust chip padding for print */
+    }
+}
