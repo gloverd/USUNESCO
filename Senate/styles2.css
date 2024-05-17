@@ -1,7 +1,9 @@
 :root {
       --cell-width: 200px; /*175/2, 115/3*/
-      --cell-width-mobile: 40vw; /*175/2, 115/3*/
       --img-height: 250px; /* 175/2,  115/3*/
+
+      --cell-width-mobile: 40vw; /*175/2, 115/3*/
+      --img-height-mobile: 50vw; /*175/2, 115/3*/
     } 
 
 
@@ -179,8 +181,6 @@ body {
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
-    .card {
-      width: var(--cell-width-mobile);
-
-    }
+    .card {width: var(--cell-width-mobile);}
+    .card-image {height: var( --img-height-mobile);}
 }
