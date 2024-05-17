@@ -7,3 +7,6 @@ TO DO:
 Incorporate Alphabet Scrolling:
  - https://github.com/tariq86/AlphaNav
  - https://codepen.io/ccsantos23/pen/xxbWbPN
+
+
+- https://jsfiddle.net/q5u3x4ap/1/ <- this fiddle does not need a separate div with the aanchor, it adds it in dynamically
