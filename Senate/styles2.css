@@ -105,7 +105,7 @@ body {
 .card::after {
     content: "";
     display: block;
-    height: 16px; /* Create a pseudo-element for vertical spacing */
+    
 }
 
 .card-image {
