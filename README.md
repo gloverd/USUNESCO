@@ -10,3 +10,6 @@ Incorporate Alphabet Scrolling:
 
 
 - https://jsfiddle.net/q5u3x4ap/1/ <- this fiddle does not need a separate div with the aanchor, it adds it in dynamically
+
+
+https://gloverd.github.io/effective-waddle/Senate/index2.html
