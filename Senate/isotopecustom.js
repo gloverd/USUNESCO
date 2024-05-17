@@ -2,7 +2,7 @@ $(document).ready(function() {
     // Initialize Isotope
     var $gallery = $('.gallery').isotope({
         itemSelector: '.card',
-        layoutMode: 'fitRows',
+        layoutMode: 'fitRows', // Use fitRows layout mode for consistent item widths
         getSortData: {
             name: '[data-name]',
             title: '[data-title]'
