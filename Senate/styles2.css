@@ -32,6 +32,10 @@ body {
     color: #555;
 }
 
+.header #sorts, .header #filters{
+      display:flex;
+}
+
 .header-buttons {
     display: flex;
     justify-content: center;
@@ -42,6 +46,7 @@ body {
 .button-group {
     display: flex;
     gap: 2px;
+    margin-right:5px;
 }
 
 .button-group button {
