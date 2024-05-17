@@ -40,15 +40,16 @@ body {
 
 .header-buttons {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping to a new line */
     justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
 }
 
 .button-group {
     display: flex;
     gap: 2px;
     margin-right:5px;
+    flex: 1; /* Make the button groups flexible */
+    min-width: 60vw; /* Adjust as needed for your design */
 }
 
 .button-group button {
