@@ -11,66 +11,21 @@
 
 </head>
 <body>
-    <header class="header">
+ <header class="header">
         <h1>Gallery Header</h1>
         <p>This is a placeholder for the header section. It can contain up to three lines of text to describe the content below.</p>
         <div class="header-buttons">
             <div class="button-group">
-                <button>Button 1A</button>
-                <button>Button 1B</button>
-                <button>Button 1C</button>
-                <button>Button 1D</button>
+                <button data-sort-by="name">Sort by Name</button>
+                <button data-sort-by="title">Sort by Title</button>
             </div>
             <button>Button 2</button>
             <button>Button 3</button>
         </div>
-
- <div id="filters" class="filters">
-    <div class="ui-group">
-      <!--<h3>G:</h3>-->
-      <div class="button-group js-radio-button-group" data-filter-group="color">
-        <button class="button is-checked" data-filter="">All</button>
-        <button class="button" data-filter=".male">Male</button>
-        <button class="button" data-filter=".female">Female</button>
-      </div>
-    </div>
-    <div class="ui-group">
-      <!--<h3>hair</h3>-->
-      <div class="button-group js-radio-button-group" data-filter-group="shape">
-        <button class="button is-checked" data-filter="">All</button>
-        <button class="button" data-filter=".black" style="font-size:13px;">⬛</button>
-        <button class="button" data-filter=".brown" style="font-size:13px;">🟫</button>
-        <button class="button" data-filter=".blonde" style="font-size:13px;">🟨</button>
-        <button class="button" data-filter=".grey" style="font-size:13px;">⬜</button>
-      </div>
-    </div>
-    <div class="ui-group">
-      <!--<h3>Grp</h3>-->
-      <div class="button-group js-radio-button-group" data-filter-group="size">
-        <button class="button is-checked" data-filter="">All</button>
-        <button class="button" data-filter=".grp1">I</button>
-        <button class="button" data-filter=".grp2">II</button>
-        <button class="button" data-filter=".grp3">III</button>
-        <button class="button" data-filter=".grp4">IV</button>
-        <button class="button" data-filter=".grp5a">V(a)</button>
-        <button class="button" data-filter=".grp5b">V(b)</button>
-      </div>
-    </div>
-  </div>
-  <div id="sorts" class="ui-group">
-    Sort by:
-    <div class="button-group sort-by-button-group">
-      <button class="button" data-sort-value="first">First Name</button>
-      <button class="button" data-sort-value="last">Last Name</button>
-      <button class="button is-checked" data-sort-value="country">Country</button>
-
-    </div>
-  </div>
-        
     </header>
     
     <div class="gallery">
-        <div class="card female" state="Conneticut">
+        <div class="card" data-name="Conneticut">
             <img src="img/Blumenthal.jpeg" alt="Blumenthal" class="card-image">
             <div class="card-body">
                 <div class="chips">
@@ -81,7 +36,7 @@
                 <p class="description">SVAC, SASC</p>
             </div>
         </div>
-            <div class="card male" state="Arkansas">
+            <div class="card" data-name="Arkansas">
             <img src="img/Boozman.jfif" alt="Boozman" class="card-image">
             <div class="card-body">
                 <div class="chips">
@@ -94,11 +49,11 @@
 
             </div>
         </div>
-            <div class="card male ">
+            <div class="card" data-name="Alaska"  data-title="Zoo">
             <img src="https://placehold.co/200x200/black/white?text=Senator" alt="Person 1" class="card-image">
             <div class="card-body">
-                <p class="name">H.E. Mr André-Magnus Ekoumou</p>
-                <p class="title">Ambassador Extraordinary and Plenipotentiary to France, Permanent Delegate</p>
+                <p class="name">Alaska</p>
+                <p class="title">Zoo</p>
                 <p class="description">A brief description of the person's role and contributions.</p>
                 <div class="chips">
                     <span class="chip">Political Affiliation</span>
@@ -106,11 +61,11 @@
                 </div>
             </div>
         </div>
-            <div class="card">
+            <div class="card" data-name="Zebra" data-title="Alphabet">
             <img src="https://placehold.co/200x200/yellow/white?text=Senator" alt="Person 1" class="card-image">
             <div class="card-body">
-                <p class="name">H.E. Mr André-Magnus Ekoumou</p>
-                <p class="title">Ambassador Extraordinary and Plenipotentiary to France, Permanent Delegate</p>
+                <p class="name">Zebra</p>
+                <p class="title">Alphabet</p>
                 <p class="description">A brief description of the person's role and contributions.</p>
                 <div class="chips">
                     <span class="chip">Political Affiliation</span>
