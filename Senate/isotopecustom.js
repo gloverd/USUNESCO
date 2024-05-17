@@ -33,7 +33,7 @@ $(document).ready(function() {
       // combine filters
       var filterValue = concatValues( filters );
       // set filter for Isotope
-      $grid.isotope({ filter: filterValue });
+      $gallery.isotope({ filter: filterValue });
     });
 
         // flatten object by concatting values
@@ -44,5 +44,15 @@ $(document).ready(function() {
       }
       return value;
     }
+
+        // change is-checked class on buttons
+    $('.button-group').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( buttonGroup );
+      $buttonGroup.on( 'click', 'button', function( event ) {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        var $button = $( event.currentTarget );
+        $button.addClass('is-checked');
+      });
+    });
     
 });
