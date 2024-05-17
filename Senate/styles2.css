@@ -50,8 +50,6 @@ body {
     display: flex;
     gap: 2px;
     margin-right:5px;
-    flex: 1; /* Make the button groups flexible */
-    min-width: 60px; /* Adjust as needed for your design */
 }
 
 .button-group button {
@@ -60,8 +58,6 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-          flex: 1; /* Make the button groups flexible */
-
 }
 
 .button-group button:first-child {
