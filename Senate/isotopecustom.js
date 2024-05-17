@@ -7,8 +7,10 @@ $(document).ready(function() {
             gutter: 16 // Ensure the gutter spacing is maintained
         },
         getSortData: {
-            name: '[data-name]',
-            title: '[data-title]'
+            pname: '.pname',
+            fname: '.fname',
+            lname: '.lname',
+            state-name: '[state-name]'
         }
     });
 
