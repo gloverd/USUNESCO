@@ -30,7 +30,6 @@ body {
 .card-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
 }
 
 .card-body {
