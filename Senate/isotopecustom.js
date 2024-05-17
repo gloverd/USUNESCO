@@ -10,7 +10,7 @@ $(document).ready(function() {
             pname: '.pname',
             fname: '.fname',
             lname: '.lname',
-            state: '[state-name]'
+            state: '.statechip'
         }
     });
 
