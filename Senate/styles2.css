@@ -32,7 +32,38 @@ body {
     margin-top: 10px;
 }
 
-.header-buttons button {
+.button-group {
+    display: flex;
+    gap: 2px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.button-group button:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.button-group button:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.button-group button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+.header-buttons > button {
     padding: 10px 20px;
     background-color: #007BFF;
     color: white;
@@ -41,7 +72,7 @@ body {
     cursor: pointer;
 }
 
-.header-buttons button:hover {
+.header-buttons > button:hover {
     background-color: #0056b3;
 }
 
