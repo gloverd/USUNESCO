@@ -154,13 +154,13 @@ body {
     font-size: 0.8em;
 }
 
-.chip.dem {
-    background-color: skyblue !important;
+.chip.chipdem {
+    background-color: Cornflowerblue !important;
     color: white !important;
 }
 
-.chip.rep {
-    background-color: coral !important;
+.chip.chiprep {
+    background-color: Crimson !important;
     color: white !important;
 }
 
