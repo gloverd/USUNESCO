@@ -14,21 +14,26 @@
         <h1>Gallery Header</h1>
         <p>This is a placeholder for the header section. It can contain up to three lines of text to describe the content below.</p>
         <div class="header-buttons">
-            <span id="sorts"><div class="button-group">
+            <span id="sorts"><div class="button-group" >
                 <button class="button" data-sort-by="fname">First</button>
                 <button class="button" data-sort-by="lname">Last</button>
                 <button class="button is-checked" data-sort-by="state">State</button>
             </div></span>
             <span id="filters">    
-            <div class="button-group">
+            <div class="button-group" data-filter-group="congress">
                 <button class="button" data-filter="">Both</button>
-                <button class="button" data-filter="">Senate</button>
-                <button class="button" data-filter="">House</button>
+                <button class="button" data-filter=".senator">Senate</button>
+                <button class="button" data-filter=".representative">House</button>
             </div>
-            <div class="button-group">
+            <div class="button-group" data-filter-group="party">
                 <button class="button" data-filter="">Both</button>
                 <button class="button" data-filter=".dem">Dem</button>
                 <button class="button" data-filter=".rep">Rep</button>
+            </div>
+            <div class="button-group" data-filter-group="gender">
+                <button class="button" data-filter="">Both</button>
+                <button class="button" data-filter=".male">Male</button>
+                <button class="button" data-filter=".female">Female</button>
             </div>
             <button class="button">Button 3</button>
             </span>
