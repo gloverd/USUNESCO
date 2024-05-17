@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <link rel="stylesheet" href="styles2.css">
+    <link rel="text/javascript" href="isotopecustom.js">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
@@ -23,7 +24,51 @@
             <button>Button 2</button>
             <button>Button 3</button>
         </div>
+
+ <div id="filters" class="filters">
+    <div class="ui-group">
+      <!--<h3>G:</h3>-->
+      <div class="button-group js-radio-button-group" data-filter-group="color">
+        <button class="button is-checked" data-filter="">All</button>
+        <button class="button" data-filter=".male">Male</button>
+        <button class="button" data-filter=".female">Female</button>
+      </div>
+    </div>
+    <div class="ui-group">
+      <!--<h3>hair</h3>-->
+      <div class="button-group js-radio-button-group" data-filter-group="shape">
+        <button class="button is-checked" data-filter="">All</button>
+        <button class="button" data-filter=".black" style="font-size:13px;">⬛</button>
+        <button class="button" data-filter=".brown" style="font-size:13px;">🟫</button>
+        <button class="button" data-filter=".blonde" style="font-size:13px;">🟨</button>
+        <button class="button" data-filter=".grey" style="font-size:13px;">⬜</button>
+      </div>
+    </div>
+    <div class="ui-group">
+      <!--<h3>Grp</h3>-->
+      <div class="button-group js-radio-button-group" data-filter-group="size">
+        <button class="button is-checked" data-filter="">All</button>
+        <button class="button" data-filter=".grp1">I</button>
+        <button class="button" data-filter=".grp2">II</button>
+        <button class="button" data-filter=".grp3">III</button>
+        <button class="button" data-filter=".grp4">IV</button>
+        <button class="button" data-filter=".grp5a">V(a)</button>
+        <button class="button" data-filter=".grp5b">V(b)</button>
+      </div>
+    </div>
+  </div>
+  <div id="sorts" class="ui-group">
+    Sort by:
+    <div class="button-group sort-by-button-group">
+      <button class="button" data-sort-value="first">First Name</button>
+      <button class="button" data-sort-value="last">Last Name</button>
+      <button class="button is-checked" data-sort-value="country">Country</button>
+
+    </div>
+  </div>
+        
     </header>
+    
     <div class="gallery">
         <div class="card">
             <img src="img/Blumenthal.jpeg" alt="Blumenthal" class="card-image">
