@@ -1,5 +1,6 @@
 :root {
       --cell-width: 200px; /*175/2, 115/3*/
+      --cell-width-mobile: 40vw; /*175/2, 115/3*/
       --img-height: 250px; /* 175/2,  115/3*/
     } 
 
@@ -179,6 +180,7 @@ body {
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     .card {
-        grid-template-columns: repeat(2, 1fr);
+      width: var(--cell-width-mobile);
+
     }
 }
