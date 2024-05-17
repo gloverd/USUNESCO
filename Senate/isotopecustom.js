@@ -1,3 +1,4 @@
+<script type="text/javascript">
 
     // external js: isotope.pkgd.js
 
@@ -55,3 +56,4 @@
       }
       return value;
     }
+  </script>
