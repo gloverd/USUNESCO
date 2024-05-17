@@ -2,14 +2,14 @@ $(document).ready(function() {
     // Initialize Isotope
     var $gallery = $('.gallery').isotope({
         itemSelector: '.card',
-        layoutMode: 'fitRows', // Use fitRows layout mode for consistent item widths
+        percentPosition: true,
+        masonry: {
+            columnWidth: '.card',
+            gutter: 16
+        },
         getSortData: {
             name: '[data-name]',
             title: '[data-title]'
-        },
-        masonry: {
-            columnWidth: '.card',
-            isFitWidth: true
         }
     });
 
