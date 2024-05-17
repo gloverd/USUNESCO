@@ -10,7 +10,7 @@ $(document).ready(function() {
             pname: '.pname',
             fname: '.fname',
             lname: '.lname',
-            state-name: '[state-name]'
+            state: '[state-name]'
         }
     });
 
