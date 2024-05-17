@@ -106,6 +106,16 @@ body {
     font-size: 0.8em;
 }
 
+.chip:contains("Dem") {
+    background-color: skyblue;
+    /*color: white;  Ensure text is readable */
+}
+
+.chip:contains("Rep") {
+    background-color: coral;
+    /* color: white; Ensure text is readable */
+}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     .gallery {
