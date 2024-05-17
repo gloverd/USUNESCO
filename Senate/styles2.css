@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Changed to flex-start */
+    align-items: flex-start;
     min-height: 100vh;
 }
 
@@ -13,7 +13,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 16px;
     padding: 20px;
-    max-width: 1200px; /* Added a max-width for better layout control */
+    max-width: 1200px;
     width: 100%;
 }
 
@@ -24,7 +24,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
-    flex-direction: column; /* Ensures image and text are in column layout */
+    flex-direction: column;
 }
 
 .card-image {
@@ -34,9 +34,40 @@ body {
 
 .card-body {
     padding: 16px;
-    flex: 1; /* Ensures the card body takes up available space */
+    flex: 1;
 }
 
 .name {
     font-weight: bold;
-    margin:
+    margin: 0;
+}
+
+.title {
+    margin: 8px 0;
+}
+
+.description {
+    color: #555;
+    font-size: 0.9em;
+    margin: 8px 0;
+}
+
+.chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.chip {
+    padding: 8px;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    font-size: 0.8em;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
