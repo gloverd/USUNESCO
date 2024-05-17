@@ -202,7 +202,7 @@ body {
     }
     .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust column size for print */
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Adjust column size for print */
         gap: 10px; /* Reduce gap size for print */
         padding: 10px; /* Reduce padding for print */
     }
@@ -211,10 +211,12 @@ body {
         box-shadow: none; /* Remove box-shadow for print */
         page-break-inside: avoid; /* Avoid breaking the card across pages */
         margin-bottom: 10px; /* Reduce margin-bottom for print */
+        width: 400px;
+
     }
     .card-image {
-        height: auto; /* Ensure images scale properly */
-        max-height: 150px; /* Adjust image height for print */
+        width: auto; /* Ensure images scale properly */
+        max-height: 250px; /* Adjust image height for print */
     }
     .card-body {
         padding: 10px; /* Adjust padding for print */
