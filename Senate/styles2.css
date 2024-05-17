@@ -1,5 +1,5 @@
 :root {
-      --cell-width: 200px; /*175/2, 115/3*/
+      --cell-width: 150px; /*175/2, 115/3*/
       --min-cell-height: 250px; /* 300/2, 250/3 */
       --img-max-height: 115px; /* 175/2,  115/3*/
     } 
