@@ -6,6 +6,10 @@ $(document).ready(function() {
         getSortData: {
             name: '[data-name]',
             title: '[data-title]'
+        },
+        masonry: {
+            columnWidth: '.card',
+            isFitWidth: true
         }
     });
 
@@ -13,5 +17,15 @@ $(document).ready(function() {
     $('.button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
         $gallery.isotope({ sortBy: sortByValue });
+    });
+
+      // change is-checked class on buttons
+    $('.header').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( button-group );
+      $buttonGroup.on( 'click', 'button', function( event ) {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        var $button = $( event.currentTarget );
+        $button.addClass('is-checked');
+      });
     });
 });
