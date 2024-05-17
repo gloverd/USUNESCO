@@ -35,7 +35,9 @@ body {
 }
 
 .header #sorts, .header #filters{
-      display:flex;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to a new line */
+    justify-content: center;
 }
 
 .header-buttons {
@@ -58,6 +60,8 @@ body {
     color: white;
     border: none;
     cursor: pointer;
+          flex: 1; /* Make the button groups flexible */
+
 }
 
 .button-group button:first-child {
