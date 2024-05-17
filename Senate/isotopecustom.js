@@ -2,13 +2,13 @@
     // external js: isotope.pkgd.js
 
     // init Isotope
-    var $grid = $('.grid').isotope({
-      itemSelector: '.color-shape',
+    var $grid = $('.gallery').isotope({
+      itemSelector: '.card',
       layoutMode: 'fitRows',
       getSortData: {
         first: '.first',
         last: '.last',
-        country: '[country]'
+        state: '[state]'
       }
     });
 
