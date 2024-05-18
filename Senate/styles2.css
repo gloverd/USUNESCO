@@ -2,7 +2,7 @@
       --cell-width: 200px; /*175/2, 115/3*/
       --img-height: 250px; /* 175/2,  115/3*/
 
-      --cell-width-mobile: 40vw; /*175/2, 115/3*/
+      --cell-width-mobile: 42vw; /*175/2, 115/3*/
       --img-height-mobile: 45vw; /*175/2, 115/3*/
     } 
 
@@ -193,7 +193,7 @@ body {
     .card {width: var(--cell-width-mobile);}
     .card::after {height: 0px;}
     .card-image {height: var( --img-height-mobile);}
-    .card-body {padding: 8px;}
+    .card-body {padding: 8px; padding-bottom: 0px;}
     .gallery{justify-items: center;}
      #sorts::before {content: "M";display: flex;}
 }
