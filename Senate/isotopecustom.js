@@ -2,10 +2,10 @@ $(document).ready(function() {
     // Initialize Isotope
     var $gallery = $('.gallery').isotope({
         itemSelector: '.card',
-        layoutMode: 'fitRows', // Use fitRows layout mode for consistent row heights
         percentPosition: true,
         fitRows: {
-            gutter: '.gutter-sizer' // Ensure the gutter spacing is maintained
+           gutter: '16px';
+            // gutter: '.gutter-sizer' // Ensure the gutter spacing is maintained
         },
         getSortData: {
             pname: '.pname',
