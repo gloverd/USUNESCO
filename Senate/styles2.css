@@ -178,6 +178,9 @@ body {
     background-color: Crimson !important;
     color: white !important;
 }
+.chip.chipind {
+    background-color: #32de84 !important;
+}
 
 
 /* Media query for mobile devices */
