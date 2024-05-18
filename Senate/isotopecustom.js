@@ -4,7 +4,7 @@ $(document).ready(function() {
         itemSelector: '.card',
         layoutMode: 'cellsByRow', // Use fitRows layout mode for consistent row heights
         percentPosition: true,
-        fitRows: {gutter: 2%,   columnWidth: 45%,  rowHeight: 260 } // Ensure the gutter spacing is maintained ,
+        fitRows: {gutter: 2%,   columnWidth: 45%,  rowHeight: 260 },// Ensure the gutter spacing is maintained ,
         getSortData: {
             pname: '.pname',
             fname: '.fname',
