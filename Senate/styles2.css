@@ -173,7 +173,6 @@ body {
     background-color: Cornflowerblue !important;
     color: white !important;
 }
-
 .chip.chiprep {
     background-color: Crimson !important;
     color: white !important;
@@ -182,6 +181,12 @@ body {
     background-color: #32de84 !important;
 }
 
+.chip.vote {
+    background-color: white !important;
+    color: red !important;
+    font-weight:900;
+    border: 3px solid red;
+}
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
