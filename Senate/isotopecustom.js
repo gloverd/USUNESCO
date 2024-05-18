@@ -3,8 +3,9 @@ $(document).ready(function() {
     var $gallery = $('.gallery').isotope({
         itemSelector: '.card',
         layoutMode: 'fitRows', // Use fitRows layout mode for consistent row heights
+        percentPosition: true,
         fitRows: {
-            gutter: 16 // Ensure the gutter spacing is maintained
+            gutter: '.gutter-sizer' // Ensure the gutter spacing is maintained
         },
         getSortData: {
             pname: '.pname',
