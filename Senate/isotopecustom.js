@@ -1,10 +1,11 @@
 $(document).ready(function() {
     // Initialize Isotope
-   var $gallery = $('.gallery').isotope({
+var $gallery = $('.gallery').isotope({
         itemSelector: '.card',
-        layoutMode: 'cellsByRow', // Use fitRows layout mode for consistent row heights
-        percentPosition: true,
-        fitRows: {columnWidth: 45%,  rowHeight: 260px },// Ensure the gutter spacing is maintained ,
+        layoutMode: 'fitRows', // Use fitRows layout mode for consistent row heights
+        fitRows: {
+            gutter: 16 // Ensure the gutter spacing is maintained
+        },
         getSortData: {
             pname: '.pname',
             fname: '.fname',
@@ -12,7 +13,6 @@ $(document).ready(function() {
             state: '.statechip'
         }
     });
-
     // Bind sort button click
     $('.button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
