@@ -14,9 +14,37 @@ var $gallery = $('.gallery').isotope({
         }
     });
     // Bind sort button click
+    //$('.button-group').on('click', 'button', function() {
+    //    var sortByValue = $(this).attr('data-sort-by');
+    //    $gallery.isotope({ sortBy: sortByValue });
+    //});
+
+    
     $('.button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
         $gallery.isotope({ sortBy: sortByValue });
+
+        // Remove existing ids from .card elements
+        $('.card').removeAttr('id');
+
+        // Get the sorted items
+        var sortedItems = $gallery.isotope('getFilteredItemElements');
+
+        // Check the sortByValue to add the corresponding ID
+        if (sortByValue) {
+            var firstLetter;
+            $(sortedItems).each(function() {
+                var sortValue = $(this).find('.' + sortByValue).text().trim();
+                if (sortValue) {
+                    firstLetter = sortValue.charAt(0).toUpperCase();
+                    if (firstLetter) {
+                        $(this).attr('id', firstLetter);
+                        // Break the loop after setting the id for the first instance
+                        return false;
+                    }
+                }
+            });
+        }
     });
 
       // flatten object by concatting values
