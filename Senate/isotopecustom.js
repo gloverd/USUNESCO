@@ -78,3 +78,38 @@ $(document).ready(function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Assuming you have a sort button or some way to trigger the sorting
+    var sortButton = document.querySelector('#sorts button'); // Replace with the actual selector for your sort button
+
+    sortButton.addEventListener('click', function() {
+        // Remove existing IDs
+        document.querySelectorAll('div.card').forEach(function(card) {
+            card.removeAttribute('id');
+        });
+
+        // Get all div.card elements after sorting (assuming you have a sorting function)
+        var cards = document.querySelectorAll('div.gallery div.card');
+
+        // To keep track of the first occurrence of each letter
+        var firstLetters = {};
+
+        cards.forEach(function(card) {
+            var fnameElement = card.querySelector('.fname');
+            if (fnameElement) {
+                var firstLetter = fnameElement.textContent.trim().charAt(0).toUpperCase();
+                if (!firstLetters[firstLetter]) {
+                    firstLetters[firstLetter] = true;
+                    card.setAttribute('id', firstLetter);
+                }
+            }
+        });
+
+        // Re-trigger alphascroll.js functionality
+        if (typeof alphascroll !== 'undefined' && typeof alphascroll.init === 'function') {
+            alphascroll.init(); // Adjust this line if your alphascroll.js has a different way to initialize or update
+        }
+    });
+});
+
