@@ -45,7 +45,7 @@
 </head>
 <body>
  
-
+<div class="js-abcscroll">
   <div class="abc-index js-abcscroll--nav">
         <button disabled type="button" data-alpha="#">#</button>
         <button current type="button" data-alpha="a">A</button>
@@ -112,7 +112,7 @@
         </div>
     </header>
     
-    <div class="gallery">
+    <div class="gallery content js-abcscroll--content">
 
 <div data-alpha="b" class='card male Representative rep grey' state-name='Texas'><img src='img/babin.jfif' class='card-image'><div class='card-body'><div class='chips'><span class='cl'><span class='chip chiprep'>Rep</span><span class='chip statechip'>Texas</span></span><span class='cr'></span></div><p class='name'><span class='pname'>Tex.</span> <span class='fname'>Brian</span> <span class='lname'>Babin</span></p><p class='title'></p><p class='description'></p></div></div>
 <div class='card male Representative rep grey' state-name='Nebraska'><img src='img/bacon.jfif' class='card-image'><div class='card-body'><div class='chips'><span class='cl'><span class='chip chiprep'>Rep</span><span class='chip statechip'>Nebraska</span></span><span class='cr'></span></div><p class='name'><span class='pname'>Neb.</span> <span class='fname'>Donald</span> <span class='lname'>Bacon</span></p><p class='title'></p><p class='description'></p></div></div>
@@ -192,6 +192,9 @@
         
         <!-- Repeat .card for each person in the gallery -->
     </div>
+
+</div>
+    
     <!-- call down here so content is fully loaded -->
     <script src="isotopecustom.js"></script>
   <script src="alphascroll.js"></script>
