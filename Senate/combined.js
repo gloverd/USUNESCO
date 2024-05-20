@@ -54,13 +54,13 @@
       if ($(this).css('display') !== 'none') {
         var $this = $(this),
             _data = $this.data(),
-            elOffset = $this.offset(),
-            containerOffset = self.$content.offset();
-
-        var scrollPosition = elOffset.top - containerOffset.top;
+            containerOffset = self.$content.offset().top,
+            scrollPosition = $this.offset().top - containerOffset + self.$content.scrollTop();
+        
         self.posList.push({ alpha: _data.alpha, pos: scrollPosition });
-
         $(self.$el).find('button[data-alpha="' + _data.alpha + '"]').removeAttr('disabled');
+      } else {
+        $(self.$el).find('button[data-alpha="' + $(this).data('alpha') + '"]').attr('disabled', 'disabled');
       }
     });
 
