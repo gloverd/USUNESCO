@@ -1,77 +1,136 @@
-$(document).ready(function() {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const sidebar = $('.alphabet-sidebar ul');
-    const content = $('.content');
+(function($, window, document, undefined) {
 
-    function updateSidebar() {
-        alphabet.forEach(letter => {
-            const firstElement = content.find(`#${letter}`);
-            if (firstElement.length > 0) {
-                sidebar.find(`[data-letter=${letter}]`).removeClass('greyed');
-            } else {
-                sidebar.find(`[data-letter=${letter}]`).addClass('greyed');
-            }
-        });
+  var supportTouch = (function() {
+    var test = 'ontouchstart' in window;
+    if (!test && 'DocumentTouch' in window) {
+      test = document instanceof window['DocumentTouch'];
+    };
+    return test ||
+      navigator.maxTouchPoints > 0 ||
+      window.navigator.msMaxTouchPoints > 0;    
+  })();
+
+  var touchEvents = {
+    start: supportTouch ? 'touchstart' : 'mousedown',
+    move: supportTouch ? 'touchmove' : 'mousemove',
+    end: supportTouch ? 'touchend' : 'mouseup'
+  };
+  
+  var pluginName = 'abcScroll';
+  
+  function getTarget(e) {
+    var target;
+    
+    if (supportTouch) {
+      if (e.targetTouches.length) {
+        target = document.elementFromPoint(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
+      }
+    } else {
+      target = e.target;
     }
 
-    function scrollToLetter(letter) {
-        const target = content.find(`#${letter}`);
-        if (target.length > 0) {
-            $('html, body').animate({
-                scrollTop: target.offset().top
-            }, 500);
-        }
-    }
+    return target;
+  }
 
-    sidebar.on('click', 'li', function() {
-        const letter = $(this).data('letter');
-        scrollToLetter(letter);
+  function AbcScroll(container) {
+    var self = this;
+
+    this.$container = $(container);
+    
+    this.$el = this.$container.find('.js-abcscroll--nav');
+    this.$content = this.$container.find('.js-abcscroll--content');
+
+    this.posList = [];
+
+    this.$el.on(touchEvents.start + '.abcScroll', this.handleStart.bind(this));
+    this.$el.on(touchEvents.move + '.abcScroll', this.handleMove.bind(this)); 
+    this.$el.on(touchEvents.end + '.abcScroll', this.handleEnd.bind(this));
+    
+    // Add click events
+    this.$el.on('click' + '.abcScroll', this.handleClick.bind(this));
+    
+    // Add scroll event
+    this.$content.on('scroll' + '.abcScroll', this.handleScroll.bind(this));
+
+    $(this.$content).find('[data-alpha]').each(function() {
+      var $this = $(this), 
+          _data = $this.data(), 
+          elOffset = $this.offset(), 
+          containerOffset = self.$content.offset();
+
+      var scrollPosition = elOffset.top - containerOffset.top;
+      self.posList.push({ alpha: _data.alpha, pos: scrollPosition });
+      
+      $(self.$el).find('button[data-alpha="' + _data.alpha + '"]').removeAttr('disabled');
     });
 
-    $(window).on('scroll', function() {
-        let currentLetter = '';
-        content.find('.section').each(function() {
-            const offsetTop = $(this).offset().top;
-            const windowScroll = $(window).scrollTop();
-            if (windowScroll >= offsetTop - $(window).height() / 2) {
-                currentLetter = $(this).attr('id');
-            }
-        });
-        sidebar.find('li').removeClass('bold');
-        sidebar.find(`[data-letter=${currentLetter}]`).addClass('bold');
+    // Sort positions list by scroll position
+    this.posList.sort(function(a, b) {
+      return a.pos - b.pos;
     });
+  }
 
-    // Support Touch Function
-    function supportTouch() {
-        return 'ontouchstart' in window || navigator.maxTouchPoints;
+  AbcScroll.prototype.handleStart = function(e) { 
+    e.preventDefault();  
+    this.setScroll(getTarget(e.originalEvent));
+  }
+
+  AbcScroll.prototype.handleMove = function(e) { 
+    e.preventDefault();  
+    this.setScroll(getTarget(e.originalEvent));
+  }
+
+  AbcScroll.prototype.handleEnd = function(e) { 
+    e.preventDefault();  
+    this.setScroll(getTarget(e.originalEvent));
+    $(this.$el).find('button').removeClass('current');
+  }
+
+  AbcScroll.prototype.handleClick = function(e) {
+    e.preventDefault();
+    this.setScroll(e.target);
+  }
+
+  AbcScroll.prototype.handleScroll = function() {
+    var self = this;
+    var scrollTop = this.$content.scrollTop();
+
+    $.each(this.posList, function(index, posObj) {
+      if (scrollTop >= posObj.pos && (index + 1 === self.posList.length || scrollTop < self.posList[index + 1].pos)) {
+        $(self.$el).find('button').removeClass('current');
+        $(self.$el).find('button[data-alpha="' + posObj.alpha + '"]').addClass('current');
+      }
+    });
+  }
+
+  AbcScroll.prototype.setScroll = function(target) {
+    if (!target) {
+      return;
     }
+    
+    var $target = $(target), 
+        _data = $target.data(), 
+        posObj = this.posList.find(function(item) { return item.alpha === _data.alpha; });
+    
+    if (posObj && posObj.pos !== this._oldPos) {
+      $(this.$el).find('button').removeClass('current');
+      $target.addClass('current');
+     
+      this.$content.scrollTop(posObj.pos);
+      this._oldPos = posObj.pos; 
+    }   
+  }
+  
+  $.fn[pluginName] = function(options) {
+     return this.each(function () {
+       if (!$.data(this, pluginName)) {
+         $.data(this, pluginName, new AbcScroll(this, options));
+       }
+     });
+  }
 
-    // Swipe functionality
-    if (supportTouch()) {
-        let startY = 0;
-        let isSwiping = false;
-        const letterHeight = sidebar.height() / alphabet.length;
+})(jQuery, window, document);
 
-        sidebar.on('touchstart', function(e) {
-            startY = e.originalEvent.touches[0].clientY;
-            isSwiping = true;
-        });
-
-        sidebar.on('touchmove', function(e) {
-            if (!isSwiping) return;
-            const currentY = e.originalEvent.touches[0].clientY;
-            const currentIndex = Math.floor(currentY / letterHeight);
-            if (currentIndex >= 0 && currentIndex < alphabet.length) {
-                const letter = alphabet[currentIndex];
-                scrollToLetter(letter);
-            }
-        });
-
-        sidebar.on('touchend', function() {
-            isSwiping = false;
-        });
-    }
-
-    // Initial update for the sidebar
-    updateSidebar();
+$(document).on('ready', function() {
+  $('.js-abcscroll').abcScroll();
 });
