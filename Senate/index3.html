@@ -10,6 +10,20 @@
   
   <style>
 
+.container {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;   
+}
+
 .abc-index {
   position: fixed;
   top: 0; 
@@ -19,13 +33,13 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  align-content: flex-end;
+  height: 100vh; /* Takes up 100% of the viewport height */
+  display: flex; /* Flexbox layout for the child buttons */
+  flex-direction: column; /* Align buttons in a column */
+  justify-content: space-between; /* Distribute buttons evenly */
+  align-items: stretch; /* Ensure buttons take up full width */
 
   button {
-    display: block;
     width: 100%;
     padding: 4px 10px;
     margin: 0;
@@ -36,16 +50,23 @@
     color: rgba(#000080, 0.5);
     font-weight: 800;
     transition: all 200ms linear;
+    flex:1;
+    &.current {
+      color: #fff;
+      background-color: rgba(navy, 0.5);
+    }
     
-    &.current {      color: #fff;      background-color: rgba(navy, 0.5);    }
-    &:disabled {      color: rgba(#ccc, 0.5);    }
+    &:disabled {
+      color: rgba(#ccc, 0.5);
+    }
   }
 }
+      
   </style>
 </head>
 <body>
  
-<div class="js-abcscroll">
+<div class="container js-abcscroll">
   <div class="abc-index js-abcscroll--nav">
         <button disabled type="button" data-alpha="#">#</button>
         <button current type="button" data-alpha="a">A</button>
