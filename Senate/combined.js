@@ -44,22 +44,30 @@
     this.$el.on('click' + '.abcScroll', this.handleClick.bind(this));
     this.$content.on('scroll' + '.abcScroll', this.handleScroll.bind(this));
 
+    this.updatePositions();
+  }
+
+  AbcScroll.prototype.updatePositions = function() {
+    var self = this;
+    self.posList = [];
     $(this.$content).find('[data-alpha]').each(function() {
-      var $this = $(this),
-          _data = $this.data(),
-          elOffset = $this.offset(),
-          containerOffset = self.$content.offset();
+      if ($(this).css('display') !== 'none') {
+        var $this = $(this),
+            _data = $this.data(),
+            elOffset = $this.offset(),
+            containerOffset = self.$content.offset();
 
-      var scrollPosition = elOffset.top - containerOffset.top;
-      self.posList.push({ alpha: _data.alpha, pos: scrollPosition });
+        var scrollPosition = elOffset.top - containerOffset.top;
+        self.posList.push({ alpha: _data.alpha, pos: scrollPosition });
 
-      $(self.$el).find('button[data-alpha="' + _data.alpha + '"]').removeAttr('disabled');
+        $(self.$el).find('button[data-alpha="' + _data.alpha + '"]').removeAttr('disabled');
+      }
     });
 
     this.posList.sort(function(a, b) {
       return a.pos - b.pos;
     });
-  }
+  };
 
   AbcScroll.prototype.handleStart = function(e) {
     e.preventDefault();
@@ -109,11 +117,11 @@
   }
 
   $.fn[pluginName] = function(options) {
-     return this.each(function () {
-       if (!$.data(this, pluginName)) {
-         $.data(this, pluginName, new AbcScroll(this, options));
-       }
-     });
+    return this.each(function () {
+      if (!$.data(this, pluginName)) {
+        $.data(this, pluginName, new AbcScroll(this, options));
+      }
+    });
   }
 
   $(document).ready(function() {
@@ -121,77 +129,93 @@
 
     // Initialize Isotope
     var $gallery = $('.gallery').isotope({
-        itemSelector: '.card',
-        layoutMode: 'fitRows',
-        fitRows: {
-            gutter: 16
-        },
-        getSortData: {
-            pname: '.pname',
-            fname: '.fname',
-            lname: '.lname',
-            state: '.statechip'
-        }
+      itemSelector: '.card',
+      layoutMode: 'fitRows',
+      fitRows: {
+        gutter: 16
+      },
+      getSortData: {
+        pname: '.pname',
+        fname: '.fname',
+        lname: '.lname',
+        state: '.statechip'
+      }
     });
 
     // Bind sort button click
     $('.button-group').on('click', 'button', function() {
-        var sortByValue = $(this).attr('data-sort-by');
-        console.log("Sort by:", sortByValue);
-        $gallery.isotope({ sortBy: sortByValue });
+      var sortByValue = $(this).attr('data-sort-by');
+      console.log("Sort by:", sortByValue);
+      $gallery.isotope({ sortBy: sortByValue });
 
-        // Remove existing ids from .card elements
-        $('.card').removeAttr('id');
+      // Remove existing ids from .card elements
+      $('.card').removeAttr('id');
 
-        // Get the sorted items
-        var sortedItems = $gallery.isotope('getFilteredItemElements');
-        console.log("Sorted items:", sortedItems);
+      // Get the sorted items
+      var sortedItems = $gallery.isotope('getFilteredItemElements');
+      console.log("Sorted items:", sortedItems);
 
-        // Check the sortByValue to add the corresponding ID
-        if (sortByValue) {
-            var firstLetterAssigned = false;
-            $(sortedItems).each(function() {
-                var sortValue = $(this).find('.' + sortByValue).text().trim();
-                console.log("Sort value:", sortValue);
-                if (sortValue && !firstLetterAssigned) {
-                    var firstLetter = sortValue.charAt(0).toUpperCase();
-                    console.log("First letter:", firstLetter);
-                    $(this).attr('id', firstLetter);
-                    firstLetterAssigned = true;
-                    console.log("Added id:", $(this).attr('id'));
-                }
-            });
+      // Check the sortByValue to add the corresponding ID
+      if (sortByValue) {
+        var firstLetterAssigned = false;
+        $(sortedItems).each(function() {
+          var sortValue = $(this).find('.' + sortByValue).text().trim();
+          console.log("Sort value:", sortValue);
+          if (sortValue && !firstLetterAssigned) {
+            var firstLetter = sortValue.charAt(0).toUpperCase();
+            console.log("First letter:", firstLetter);
+            $(this).attr('id', firstLetter);
+            firstLetterAssigned = true;
+            console.log("Added id:", $(this).attr('id'));
+          }
+        });
+      }
+
+      // Refresh abcScroll
+      $('.js-abcscroll').each(function() {
+        var abcScrollInstance = $(this).data(pluginName);
+        if (abcScrollInstance) {
+          abcScrollInstance.updatePositions();
         }
+      });
     });
 
     // Store filter for each group
     var filters = {};
     $('#filters').on('click', '.button', function(event) {
-        var $button = $(event.currentTarget);
-        var $buttonGroup = $button.parents('.button-group');
-        var filterGroup = $buttonGroup.attr('data-filter-group');
-        filters[filterGroup] = $button.attr('data-filter');
-        var filterValue = concatValues(filters);
-        $gallery.isotope({ filter: filterValue });
+      var $button = $(event.currentTarget);
+      var $buttonGroup = $button.parents('.button-group');
+      var filterGroup = $buttonGroup.attr('data-filter-group');
+      filters[filterGroup] = $button.attr('data-filter');
+      var filterValue = concatValues(filters);
+      $gallery.isotope({ filter: filterValue });
+
+      // Refresh abcScroll
+      $('.js-abcscroll').each(function() {
+        var abcScrollInstance = $(this).data(pluginName);
+        if (abcScrollInstance) {
+          abcScrollInstance.updatePositions();
+        }
+      });
     });
 
     // Change is-checked class on buttons
     $('.button-group').each(function(i, buttonGroup) {
-        var $buttonGroup = $(buttonGroup);
-        $buttonGroup.on('click', 'button', function(event) {
-            $buttonGroup.find('.is-checked').removeClass('is-checked');
-            var $button = $(event.currentTarget);
-            $button.addClass('is-checked');
-        });
+      var $buttonGroup = $(buttonGroup);
+      $buttonGroup.on('click', 'button', function(event) {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        var $button = $(event.currentTarget);
+        $button.addClass('is-checked');
+      });
     });
 
     // Helper function to concatenate values
     function concatValues(obj) {
-        var value = '';
-        for (var prop in obj) {
-            value += obj[prop];
-        }
-        return value;
+      var value = '';
+      for (var prop in obj) {
+        value += obj[prop];
+      }
+      return value;
     }
   });
 
