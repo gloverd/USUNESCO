@@ -9,10 +9,40 @@
     <script type="text/javascript" src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
   <style>
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
 
-.container {}
+html, body {
+  height: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+}
 
-.content {-webkit-overflow-scrolling: touch; }
+      
+.wrapper,
+.container {
+  height: 100%;
+}
+
+.container {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;   
+}
 
 .abc-index {
   position: fixed;
@@ -29,35 +59,35 @@
   justify-content: space-between; /* Distribute buttons evenly */
   align-items: stretch; /* Ensure buttons take up full width */
 }
- .abc-index button {
-    width: 100%;
-    padding: 4px 10px;
-    margin: 0;
-    border: 0;
-    border-radius: 3px;
-    background-color: #0e0e0e;
-    text-align: center;
-    color: rgba(#000080, 0.5);
-    font-weight: 800;
-    transition: all 200ms linear;
-    flex:1;
-  }
+
+.abc-index button {
+  width: 100%;
+  padding: 4px 10px;
+  margin: 0;
+  border: 0;
+  border-radius: 3px;
+  background-color: #fff;
+  text-align: center;
+  color: rgba(0, 0, 128, 0.5);
+  font-weight: 800;
+  transition: all 200ms linear;
+  flex: 1;
+}
+
 .abc-index button.current {
-      color: #fff;
-      background-color: rgba(navy, 0.5) !important;
-    }
-    
-.abc-index button.disabled {
-      color: rgba(#ccc, 0.5);
-    }
-      
+  color: #fff;
+  background-color: rgba(0, 0, 128, 0.5) !important;
+}
+
+.abc-index button:disabled {
+  color: rgba(204, 204, 204, 0.5);
+} 
   </style>
 </head>
 <body>
  
 <div class="container js-abcscroll">
   <div class="abc-index js-abcscroll--nav">
-        <button disabled type="button" data-alpha="#">#</button>
         <button current type="button" data-alpha="a">A</button>
         <button disabled type="button" data-alpha="b">B</button>
         <button disabled type="button" data-alpha="c">C</button>
@@ -90,7 +120,8 @@
         <!-- <h1>Gallery Header</h1>
         <p>This is a placeholder for the header section. It can contain up to three lines of text to describe the content below.</p> -->
         <div class="header-buttons">
-            <span id="sorts"><div class="button-group" >
+            <span id="sorts">
+            <div class="button-group" >
                 <button class="button is-checked" data-sort-by="fname">First</button>
                 <button class="button " data-sort-by="lname">Last</button>
                 <button class="button " data-sort-by="state">State</button>
@@ -207,6 +238,7 @@
     
     <!-- call down here so content is fully loaded -->
     <!--<script src="isotopecustom.js"></script>-->
-    <script src="alphascroll.js"></script>
+    <!--<script src="alphascroll.js"></script>-->
+    <script src="combined.js"></script>
 </body>
 </html>
