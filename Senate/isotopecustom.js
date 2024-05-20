@@ -29,19 +29,16 @@ $(document).ready(function() {
 
         // Check the sortByValue to add the corresponding ID
         if (sortByValue) {
-            var firstLetter;
+            var firstLetterAssigned = false;
             $(sortedItems).each(function() {
                 var sortValue = $(this).find('.' + sortByValue).text().trim();
                 console.log("Sort value:", sortValue);
-                if (sortValue) {
-                    firstLetter = sortValue.charAt(0).toUpperCase();
+                if (sortValue && !firstLetterAssigned) {
+                    var firstLetter = sortValue.charAt(0).toUpperCase();
                     console.log("First letter:", firstLetter);
-                    if (firstLetter) {
-                        $(this).attr('id', firstLetter);
-                        console.log("Added id:", $(this));
-                        // Break the loop after setting the id for the first instance
-                        return false;
-                    }
+                    $(this).attr('id', firstLetter);
+                    firstLetterAssigned = true; // Set flag to true after assigning the first letter
+                    console.log("Added id:", $(this).attr('id'));
                 }
             });
         }
