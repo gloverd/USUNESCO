@@ -24,7 +24,7 @@ $(document).ready(function() {
         var sortByValue = $(this).attr('data-sort-by');
         console.log("Triggered Sort by:", sortByValue);
         
-        var sort_type_class = '.'+$(this).attr('data-sort-by'); // Correctly retrieve the attribute
+        sort_type_class = '.'+$(this).attr('data-sort-by'); // Correctly retrieve the attribute
         console.log("Storing:", sort_type_class); // Print the stored value
 
         $gallery.isotope({ sortBy: sortByValue });
