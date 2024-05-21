@@ -108,7 +108,7 @@ $(document).ready(function() {
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
                 var $item = $(item);
                     console.log("adding attributes for: ", sort_type_class);
-                var lnameText = $item.find('.lname').text().trim();
+                var lnameText = $item.find(sort_type_class).text().trim();
                 var firstLetter = lnameText.charAt(0).toUpperCase();
 
                 if (firstLetter && firstLetter !== previous) { 
