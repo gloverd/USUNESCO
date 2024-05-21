@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 
-        var sort_type_class = "";
+    var sort_type_class = ''; // Define sort_type_class in a higher scope
 
     // Initialize Isotope
     var $gallery = $('.gallery').isotope({
@@ -24,7 +24,7 @@ $(document).ready(function() {
         var sortByValue = $(this).attr('data-sort-by');
         console.log("Triggered Sort by:", sortByValue);
         
-        var sort_type_class = $(this).attr('data-sort-by'); // Correctly retrieve the attribute
+        var sort_type_class = '.'+$(this).attr('data-sort-by'); // Correctly retrieve the attribute
         console.log("Storing:", sort_type_class); // Print the stored value
 
         $gallery.isotope({ sortBy: sortByValue });
