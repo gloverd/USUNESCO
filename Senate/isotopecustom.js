@@ -104,11 +104,12 @@ $(document).ready(function() {
 
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
                 var $item = $(item);
-                var lnameText = $item.find('.lname').text().trim();
+                var lnameText = $item.find("." & sortByValue).text().trim();
                 var firstLetter = lnameText.charAt(0).toUpperCase();
 
                 if (firstLetter && firstLetter !== previous) { 
                     $item.attr("data-alpha", "first_letter_" + firstLetter);
+                        $item.attr("id", "first_letter_" + firstLetter);
                     previous = firstLetter;
                     $("#index").append("<a href='#first_letter_" + firstLetter + "'>" + firstLetter + "</a><br/>");
                 }
