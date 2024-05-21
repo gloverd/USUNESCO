@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+        
+    
+    $("body").append("<div id='index'></div>");
+
     // Initialize Isotope
     var $gallery = $('.gallery').isotope({
         itemSelector: '.card',
@@ -52,7 +57,7 @@ $(document).ready(function() {
         // Get group key
         var $buttonGroup = $button.parents('.button-group');
         var filterGroup = $buttonGroup.attr('data-filter-group');
-        console.log(" Triggered Filter by:", $buttonGroup.attr('data-filter-group'), "-",$button.attr('data-filter'));
+        console.log("Triggered Filter by:", $buttonGroup.attr('data-filter-group'), $button.attr('data-filter'));
         // Set filter for group
         filters[filterGroup] = $button.attr('data-filter');
         // Combine filters
@@ -92,16 +97,20 @@ $(document).ready(function() {
 
 
     // Function to add attributes and rebuild the index
+       
         function addAttributes() {
             var previous = "";
             $("#index").empty(); // Clear the index before rebuilding
+
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
                 var $item = $(item);
-                var current = $item.text()[0];
-                if (current != previous) { 
-                    $item.attr("data-alpha", "first_letter_" + current);
-                    previous = current;
-                    $("#index").append("<a href='#first_letter_" + current + "'>" + current + "</a><br/>");
+                var lnameText = $item.find('.lname').text().trim();
+                var firstLetter = lnameText.charAt(0).toUpperCase();
+
+                if (firstLetter && firstLetter !== previous) { 
+                    $item.attr("data-alpha", "first_letter_" + firstLetter);
+                    previous = firstLetter;
+                    $("#index").append("<a href='#first_letter_" + firstLetter + "'>" + firstLetter + "</a><br/>");
                 }
             });
         }
