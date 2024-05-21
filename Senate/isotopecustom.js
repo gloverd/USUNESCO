@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
-        
-    
-    $("body").append("<div id='index'></div>");
+
         var sort_type_class = "";
 
     // Initialize Isotope
