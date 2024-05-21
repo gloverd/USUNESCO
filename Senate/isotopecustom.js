@@ -13,21 +13,10 @@ $(document).ready(function() {
             state: '.statechip'
         }
     });
+
+
+
     
-    // Bind a callback to the arrangeComplete event
-    $grid.on('arrangeComplete', function() {
-        var previous = "";
-        $("#index").empty(); // Clear the index before rebuilding
-    
-        $("div.card span.lname").each(function() {
-            var current = $(this).text()[0];
-            if (current != previous) { 
-                $(this).attr("data-alpha", "first_letter_" + current);
-                previous = current;
-                $("#index").append("<a href='#first_letter_" + current + "'>" + current + "</a><br/>");
-            }
-        });
-    });
     // Bind sort button click
     $('.button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
@@ -127,3 +116,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+        // Bind a callback to the arrangeComplete event
+        $gallery.on('arrangeComplete', function() {
+                    console.log('arrangeComplete callback triggered');
+            var $items = $gallery.isotope('getFilteredItemElements');
+            $gallery.append($items); // Re-order the DOM elements
+        console.log('reordered');
+
+        });
