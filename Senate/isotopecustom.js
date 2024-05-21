@@ -3,6 +3,7 @@ $(document).ready(function() {
         
     
     $("body").append("<div id='index'></div>");
+        var sort_type_class = "";
 
     // Initialize Isotope
     var $gallery = $('.gallery').isotope({
@@ -23,7 +24,9 @@ $(document).ready(function() {
     // Bind sort button click
     $('#sorts .button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
-        console.log(" Triggered Sort by:", sortByValue);
+        console.log("Triggered Sort by:", sortByValue);
+        console.log("Triggered Sort by:", sortByValue);
+        var sort_type_class = '.' + sortByValue;
         $gallery.isotope({ sortBy: sortByValue });
 
         // Remove existing ids from .card elements
@@ -104,7 +107,7 @@ $(document).ready(function() {
 
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
                 var $item = $(item);
-                var lnameText = $item.find("." & sortByValue).text().trim();
+                var lnameText = $item.find(sort_type_class).text().trim();
                 var firstLetter = lnameText.charAt(0).toUpperCase();
 
                 if (firstLetter && firstLetter !== previous) { 
