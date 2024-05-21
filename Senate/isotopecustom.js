@@ -45,6 +45,22 @@ $(document).ready(function() {
         }
     });
 
+    // Store filter for each group
+    var filters = {};
+    $('#filters').on('click', '.button', function(event) {
+        var $button = $(event.currentTarget);
+        // Get group key
+        var $buttonGroup = $button.parents('.button-group');
+        var filterGroup = $buttonGroup.attr('data-filter-group');
+        console.log(" Triggered Filter by:", $buttonGroup.attr('data-filter-group'), "-",$button.attr('data-filter'));
+        // Set filter for group
+        filters[filterGroup] = $button.attr('data-filter');
+        // Combine filters
+        var filterValue = concatValues(filters);
+        // Set filter for Isotope
+        $gallery.isotope({ filter: filterValue });
+    });
+
     // Flatten object by concatenating values
     function concatValues(obj) {
         var value = '';
@@ -53,22 +69,6 @@ $(document).ready(function() {
         }
         return value;
     }
-
-    // Store filter for each group
-    var filters = {};
-    $('#filters').on('click', '.button', function(event) {
-        var $button = $(event.currentTarget);
-        // Get group key
-        var $buttonGroup = $button.parents('.button-group');
-        var filterGroup = $buttonGroup.attr('data-filter-group');
-        console.log(" Triggered Filter by:", filterGroup);
-        // Set filter for group
-        filters[filterGroup] = $button.attr('data-filter');
-        // Combine filters
-        var filterValue = concatValues(filters);
-        // Set filter for Isotope
-        $gallery.isotope({ filter: filterValue });
-    });
 
     // Change is-checked class on buttons
     $('.button-group').each(function(i, buttonGroup) {
@@ -83,11 +83,11 @@ $(document).ready(function() {
 
     // Bind a callback to the arrangeComplete event
     $gallery.on('arrangeComplete', function() {
-                console.log('arrangeComplete callback triggered');
+        console.log('arrangeComplete callback triggered');
         var $items = $gallery.isotope('getFilteredItemElements');
         $gallery.append($items); // Re-order the DOM elements
-    console.log('reordered');
-
+        console.log('reordered');
+        addAttributes();
     });
 
 
@@ -95,7 +95,6 @@ $(document).ready(function() {
         function addAttributes() {
             var previous = "";
             $("#index").empty(); // Clear the index before rebuilding
-
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
                 var $item = $(item);
                 var current = $item.text()[0];
