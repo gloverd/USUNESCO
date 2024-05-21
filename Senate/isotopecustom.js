@@ -14,7 +14,7 @@ $(document).ready(function() {
             pname: '.pname',
             fname: '.fname',
             lname: '.lname',
-            state: '.statechip'
+            statechip: '.statechip'
         }
     });
 
