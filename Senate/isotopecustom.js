@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 
     // Bind sort button click
-    $('.button-group').on('click', 'button', function() {
+    $('#sorts .button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
         console.log(" Triggered Sort by:", sortByValue);
         $gallery.isotope({ sortBy: sortByValue });
