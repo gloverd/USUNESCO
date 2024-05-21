@@ -37,20 +37,20 @@ $(document).ready(function() {
         //console.log("Sorted items:", sortedItems);
 
         // Check the sortByValue to add the corresponding ID
-        if (sortByValue) {
-            var firstLetterAssigned = false;
-            $(sortedItems).each(function() {
-                var sortValue = $(this).find('.' + sortByValue).text().trim();
-                //console.log("Sort value:", sortValue);
-                if (sortValue && !firstLetterAssigned) {
-                    var firstLetter = sortValue.charAt(0).toUpperCase();
-                    //console.log("First letter:", firstLetter);
-                    $(this).attr('id', firstLetter);
-                    firstLetterAssigned = true; // Set flag to true after assigning the first letter
-                    //console.log("Added id:", $(this).attr('id'));
-                }
-            });
-        }
+        //if (sortByValue) {
+         //   var firstLetterAssigned = false;
+         //   $(sortedItems).each(function() {
+         //       var sortValue = $(this).find('.' + sortByValue).text().trim();
+         //       //console.log("Sort value:", sortValue);
+         //       if (sortValue && !firstLetterAssigned) {
+         //           var firstLetter = sortValue.charAt(0).toUpperCase();
+         //           //console.log("First letter:", firstLetter);
+         //           $(this).attr('id', firstLetter);
+          //          firstLetterAssigned = true; // Set flag to true after assigning the first letter
+         //           //console.log("Added id:", $(this).attr('id'));
+         //       }
+        //    });
+        //}
     });
 
     // Store filter for each group
@@ -107,13 +107,16 @@ $(document).ready(function() {
 
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
                 var $item = $(item);
-                    console.log("adding attributes for: ", sort_type_class);
+                console.log("adding attributes for: ", sort_type_class);
+                console.log(sort_type_class);
                 var lnameText = $item.find(sort_type_class).text().trim();
+                console.log(lnameText);
                 var firstLetter = lnameText.charAt(0).toUpperCase();
+                console.log(firstLetter);
 
                 if (firstLetter && firstLetter !== previous) { 
                     $item.attr("data-alpha", "first_letter_" + firstLetter);
-                        $item.attr("id", "first_letter_" + firstLetter);
+                    $item.attr("id", "first_letter_" + firstLetter);
                     previous = firstLetter;
                     $("#index").append("<a href='#first_letter_" + firstLetter + "'>" + firstLetter + "</a><br/>");
                 }
