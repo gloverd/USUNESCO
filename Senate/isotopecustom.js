@@ -90,5 +90,20 @@ $(document).ready(function() {
     });
 
 
+    // Function to add attributes and rebuild the index
+        function addAttributes() {
+            var previous = "";
+            $("#index").empty(); // Clear the index before rebuilding
+
+            $gallery.isotope('getFilteredItemElements').forEach(function(item) {
+                var $item = $(item);
+                var current = $item.text()[0];
+                if (current != previous) { 
+                    $item.attr("data-alpha", "first_letter_" + current);
+                    previous = current;
+                    $("#index").append("<a href='#first_letter_" + current + "'>" + current + "</a><br/>");
+                }
+            });
+        }
     
 });
