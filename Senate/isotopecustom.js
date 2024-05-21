@@ -18,7 +18,7 @@ $(document).ready(function() {
     // Bind sort button click
     $('.button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
-        console.log("Sort by:", sortByValue);
+        console.log(" Triggered Sort by:", sortByValue);
         $gallery.isotope({ sortBy: sortByValue });
 
         // Remove existing ids from .card elements
@@ -26,20 +26,20 @@ $(document).ready(function() {
 
         // Get the sorted items
         var sortedItems = $gallery.isotope('getFilteredItemElements');
-        console.log("Sorted items:", sortedItems);
+        //console.log("Sorted items:", sortedItems);
 
         // Check the sortByValue to add the corresponding ID
         if (sortByValue) {
             var firstLetterAssigned = false;
             $(sortedItems).each(function() {
                 var sortValue = $(this).find('.' + sortByValue).text().trim();
-                console.log("Sort value:", sortValue);
+                //console.log("Sort value:", sortValue);
                 if (sortValue && !firstLetterAssigned) {
                     var firstLetter = sortValue.charAt(0).toUpperCase();
-                    console.log("First letter:", firstLetter);
+                    //console.log("First letter:", firstLetter);
                     $(this).attr('id', firstLetter);
                     firstLetterAssigned = true; // Set flag to true after assigning the first letter
-                    console.log("Added id:", $(this).attr('id'));
+                    //console.log("Added id:", $(this).attr('id'));
                 }
             });
         }
@@ -61,6 +61,7 @@ $(document).ready(function() {
         // Get group key
         var $buttonGroup = $button.parents('.button-group');
         var filterGroup = $buttonGroup.attr('data-filter-group');
+        console.log(" Triggered Filter by:", filterGroup);
         // Set filter for group
         filters[filterGroup] = $button.attr('data-filter');
         // Combine filters
