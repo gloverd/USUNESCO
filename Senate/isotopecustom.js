@@ -78,13 +78,17 @@ $(document).ready(function() {
             $button.addClass('is-checked');
         });
     });
+
+
+    // Bind a callback to the arrangeComplete event
+    $gallery.on('arrangeComplete', function() {
+                console.log('arrangeComplete callback triggered');
+        var $items = $gallery.isotope('getFilteredItemElements');
+        $gallery.append($items); // Re-order the DOM elements
+    console.log('reordered');
+
+    });
+
+
+    
 });
-
-        // Bind a callback to the arrangeComplete event
-        $gallery.on('arrangeComplete', function() {
-                    console.log('arrangeComplete callback triggered');
-            var $items = $gallery.isotope('getFilteredItemElements');
-            $gallery.append($items); // Re-order the DOM elements
-        console.log('reordered');
-
-        });
