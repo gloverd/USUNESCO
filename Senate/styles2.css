@@ -6,7 +6,13 @@
       --img-height-mobile: 45vw; /*175/2, 115/3*/
     } 
 
-
+#index {
+    position:fixed;
+    top:0px;
+    right:0px;
+    width:30px;
+    background:rgba(0,0,0,0.1);
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
