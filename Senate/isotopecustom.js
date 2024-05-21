@@ -23,8 +23,10 @@ $(document).ready(function() {
     $('#sorts .button-group').on('click', 'button', function() {
         var sortByValue = $(this).attr('data-sort-by');
         console.log("Triggered Sort by:", sortByValue);
-        var sort_type_class = $(this).attr('data-sort-by').text();
-            console.log("Storing:", sort_type_class);
+        
+        var sort_type_class = $(this).attr('data-sort-by'); // Correctly retrieve the attribute
+        console.log("Storing:", sort_type_class); // Print the stored value
+
         $gallery.isotope({ sortBy: sortByValue });
 
         // Remove existing ids from .card elements
