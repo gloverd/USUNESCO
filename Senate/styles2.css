@@ -7,11 +7,13 @@
     } 
 
 #index {
+      display:none;
     position:fixed;
     top:0px;
     right:0px;
     width:30px;
     background:rgba(0,0,0,0.1);
+
 }
 body {
     font-family: Arial, sans-serif;
