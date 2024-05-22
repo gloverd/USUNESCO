@@ -118,8 +118,12 @@ $(document).ready(function() {
                     $item.attr("data-alpha", "first_letter_" + firstLetter);
                     $item.attr("id", "first_letter_" + firstLetter);
                     previous = firstLetter;
-                    $("#index").append("<a href='#first_letter_" + firstLetter + "'>" + firstLetter + "</a><br/>");
+                    //$("#index").append("<a href='#first_letter_" + firstLetter + "'>" + firstLetter + "</a><br/>");
+                    $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]').removeAttr('disabled');
                 }
+                //else {
+                //    $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]').attr('disabled', 'disabled');
+                //  }
             });
         }
     
