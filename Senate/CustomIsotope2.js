@@ -226,29 +226,26 @@
         // Function to add attributes and rebuild the index
         function addAttributes() {
             var previous = "";
-            $("#index").empty(); // Clear the index before rebuilding
+            //$("#index").empty(); // Clear the index before rebuilding
             $(".abc-index").find('button[data-alpha]').attr('disabled', 'disabled');
             
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
                 
                 var $item = $(item);
                 console.log("adding attributes for: ", sort_type_class);
-                console.log(sort_type_class);
+                //console.log(sort_type_class);
                 var lnameText = $item.find(sort_type_class).text().trim();
-                console.log(lnameText);
+                //console.log(lnameText);
                 var firstLetter = lnameText.charAt(0).toUpperCase();
-                console.log(firstLetter);
+                //console.log(firstLetter);
                 
                 if (firstLetter && firstLetter !== previous) { 
-                    $item.attr("data-alpha", "first_letter_" + firstLetter);
-                    $item.attr("id", "first_letter_" + firstLetter);
+                    //$item.attr("data-alpha", "first_letter_" + firstLetter);
+                    //$item.attr("id", "first_letter_" + firstLetter);
                     previous = firstLetter;
                     //$("#index").append("<a href='#first_letter_" + firstLetter + "'>" + firstLetter + "</a><br/>");
                     $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]').removeAttr('disabled');
                 }
-                //else {
-                //    $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]').attr('disabled', 'disabled');
-                //}
             });
         }
         
