@@ -104,8 +104,10 @@ $(document).ready(function() {
         function addAttributes() {
             var previous = "";
             $("#index").empty(); // Clear the index before rebuilding
+            $(".abc-index").find('button[data-alpha]').attr('disabled', 'disabled');
 
             $gallery.isotope('getFilteredItemElements').forEach(function(item) {
+                
                 var $item = $(item);
                 console.log("adding attributes for: ", sort_type_class);
                 console.log(sort_type_class);
@@ -121,9 +123,9 @@ $(document).ready(function() {
                     //$("#index").append("<a href='#first_letter_" + firstLetter + "'>" + firstLetter + "</a><br/>");
                     $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]').removeAttr('disabled');
                 }
-                else {
-                    $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]').attr('disabled', 'disabled');
-                }
+                //else {
+                //    $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]').attr('disabled', 'disabled');
+                //}
             });
         }
     
