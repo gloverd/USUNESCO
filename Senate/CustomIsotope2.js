@@ -1,6 +1,8 @@
 (function($, window, document, undefined) {
     // Support touch events detection
-    var supportTouch = (function() {return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;})();
+    var supportTouch = (function() {
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+    })();
 
     var touchEvents = {
         start: supportTouch ? 'touchstart' : 'mousedown',
