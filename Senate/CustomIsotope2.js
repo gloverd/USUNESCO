@@ -1,42 +1,52 @@
 (function($, window, document, undefined) {
-    // Support touch events detection
-    var supportTouch = (function() {
-        return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
-    })();
-
-    var touchEvents = {
-        start: supportTouch ? 'touchstart' : 'mousedown',
-        move: supportTouch ? 'touchmove' : 'mousemove',
-        end: supportTouch ? 'touchend' : 'mouseup'
+    
+  // Support touch events detection
+  var supportTouch = (function() {
+    var test = 'ontouchstart' in window;
+    if (!test && 'DocumentTouch' in window) {
+      test = document instanceof window['DocumentTouch'];
     };
+    return test ||
+      navigator.maxTouchPoints > 0 ||
+      window.navigator.msMaxTouchPoints > 0;
+  })();
 
-    var pluginName = 'abcScroll';
+  var touchEvents = {
+    start: supportTouch ? 'touchstart' : 'mousedown',
+    move: supportTouch ? 'touchmove' : 'mousemove',
+    end: supportTouch ? 'touchend' : 'mouseup'
+  };
 
-    function getTarget(e) {
-        var target;
-        if (supportTouch && e.targetTouches.length) {
-            target = document.elementFromPoint(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
-        } else {
-            target = e.target;
-        }
-        return target;
+  var pluginName = 'abcScroll';
+
+  function getTarget(e) {
+    var target;
+    if (supportTouch) {
+      if (e.targetTouches.length) {
+        target = document.elementFromPoint(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
+      }
+    } else {
+      target = e.target;
     }
+    return target;
+  }
 
-    function AbcScroll(container) {
-        var self = this;
-        this.$container = $(container);
-        this.$el = this.$container.find('.js-abcscroll--nav');
-        this.$content = this.$container.find('.js-abcscroll--content');
-        this.posList = [];
 
-        this.$el.on(touchEvents.start + '.abcScroll', this.handleStart.bind(this));
-        this.$el.on(touchEvents.move + '.abcScroll', this.handleMove.bind(this));
-        this.$el.on(touchEvents.end + '.abcScroll', this.handleEnd.bind(this));
-        this.$el.on('click' + '.abcScroll', this.handleClick.bind(this));
-        this.$content.on('scroll' + '.abcScroll', this.handleScroll.bind(this));
+  function AbcScroll(container) {
+    var self = this;
+    this.$container = $(container);
+    this.$el = this.$container.find('.js-abcscroll--nav');
+    this.$content = this.$container.find('.js-abcscroll--content');
+    this.posList = [];
 
-        this.updatePositions();
-    }
+    this.$el.on(touchEvents.start + '.abcScroll', this.handleStart.bind(this));
+    this.$el.on(touchEvents.move + '.abcScroll', this.handleMove.bind(this));
+    this.$el.on(touchEvents.end + '.abcScroll', this.handleEnd.bind(this));
+    this.$el.on('click' + '.abcScroll', this.handleClick.bind(this));
+    this.$content.on('scroll' + '.abcScroll', this.handleScroll.bind(this));
+
+    this.updatePositions();
+  }
 
     AbcScroll.prototype.updatePositions = function() {
         var self = this;
