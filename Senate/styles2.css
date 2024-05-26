@@ -45,7 +45,7 @@
   flex: 1;
 }
 
-.abc-index button.current {
+.abc-index button.current, .abc-index button:hover {
   color: #fff;
   background-color: rgba(0, 0, 128, 0.5) !important;
 }
@@ -53,6 +53,11 @@
 .abc-index button:disabled {
   color: rgba(204, 204, 204, 0.5);
 } 
+
+.abc-index button a{
+        color: inherit; /* blue colors for links too */
+        text-decoration: inherit; /* no underline */
+}
 
 #index {
       display:none;
