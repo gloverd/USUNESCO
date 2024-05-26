@@ -1,11 +1,9 @@
 $(document).ready(function() {
 
     // Declare global Variables
-    var sort_type_class = '.lname'; // Define sort_type_class in a higher scope
-    var sort_data_default ='lname'; // Set a default for Sort Data
     var global_filter = '';
-    var global_sort_class = 'lname';
-    var global_sort_value = '.lname';
+    var global_sort_value = 'lname';
+    var global_sort_class = '.lname'; // basically the value with a class '.' before it :)
 
     
     // Initialize Isotope
@@ -30,10 +28,9 @@ $(document).ready(function() {
         var sortByValue = $(this).attr('data-sort-by');
         console.log("Triggered Sort by:", sortByValue);
         
-        sort_type_class = '.' + $(this).attr('data-sort-by'); // Correctly retrieve the attribute
-        global_sort_class = sort_type_class;
+        global_sort_class = '.' + $(this).attr('data-sort-by'); // Correctly retrieve the attribute
         global_sort_value =sortByValue;
-        console.log("Storing:", sort_type_class); // Print the stored value
+        console.log("Storing:", global_sort_class); // Print the stored value
         
         $gallery.isotope({ sortBy: sortByValue });
         
@@ -118,16 +115,15 @@ $(document).ready(function() {
             
     // Function to add attributes and rebuild the index
     function addAttributes() {
-        console.log("adding attributes for: ", sort_type_class);
+        console.log("adding attributes for: ", global_sort_class);
         var previous = "";
         $(".abc-index").find('button[data-alpha]').attr('disabled', 'disabled');
-        
         $gallery.isotope('getFilteredItemElements').forEach(function(item) {
             var $item = $(item);
-            //console.log("adding attributes for: ", sort_type_class);
-            var lnameText = $item.find(sort_type_class).text().trim();
+            //console.log("adding attributes for: ", global_sort_class);
+            var lnameText = $item.find(global_sort_class).text().trim();
             var firstLetter = lnameText.charAt(0).toUpperCase();
-            
+    
             if (firstLetter && firstLetter !== previous) { 
                 previous = firstLetter;
                 var $button = $(".abc-index").find('button[data-alpha="' + firstLetter.toLowerCase() + '"]');
@@ -148,7 +144,8 @@ $(document).ready(function() {
     
     
     // Added code to sort by default after everything loads
-    $gallery.isotope({ sortBy: sort_data_default });
+    $gallery.isotope({ sortBy: global_sort_class });
     
+
     });
     
