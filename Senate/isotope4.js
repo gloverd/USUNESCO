@@ -147,43 +147,26 @@ $(document).ready(function() {
     $gallery.isotope({ sortBy: global_sort_class });
 
     
-    // Add hover state to .abc-index button based on the first visible .card
-    function updateButtonHoverState() {
-        var observerOptions = {
-            root: null, // Use the viewport as the root
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when at least 10% of the element is visible
-        };
-
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var id = entry.target.id;
-                    if (id) {
-                        var $button = $(".abc-index").find('button[data-alpha="' + id.toLowerCase() + '"]');
-                        $(".abc-index button").removeClass('hover'); // Remove hover state from all buttons
-                        $button.addClass('hover'); // Add hover state to the corresponding button
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe each .card element
-        $gallery.isotope('getFilteredItemElements').forEach(function(item) {
-            observer.observe(item);
-        });
-    }
-
-    // Call the function to add the hover state
-    updateButtonHoverState();
-
-    
-
-        // Toggle popup content on card image click
+    // Toggle modal on card image click
     $('.gallery').on('click', '.card-image', function() {
-        var $popupContent = $(this).siblings('.popup-content');
-        $popupContent.toggle(); // Toggle visibility
+        var $modal = $('#myModal');
+        var $modalContent = $modal.find('.modal-body');
+        var $popupContent = $(this).siblings('.popup-content').html();
+        $modalContent.html($popupContent);
+        $modal.show();
     });
 
+    // Close modal when the user clicks on <span> (x)
+    $('.modal .close').on('click', function() {
+        $('#myModal').hide();
     });
+
+    // Close modal when the user clicks anywhere outside of the modal
+    $(window).on('click', function(event) {
+        if ($(event.target).is('#myModal')) {
+            $('#myModal').hide();
+        }
+    });
+
+});
     
