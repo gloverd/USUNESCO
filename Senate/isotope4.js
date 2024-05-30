@@ -156,15 +156,10 @@ $(document).ready(function() {
         $modal.show();
     });
 
-    // Close modal when the user clicks on <span> (x)
-    $('.modal .close').on('click', function() {
-        $('#myModal').hide();
-    });
-
-    // Close modal when the user clicks anywhere outside of the modal
-    $(window).on('click', function(event) {
-        if ($(event.target).is('#myModal')) {
-            $('#myModal').hide();
+    // Close modal when the user clicks anywhere inside or outside the modal
+    $('#myModal').on('click', function(event) {
+        if ($(event.target).is('#myModal') || $(event.target).is('.modal-content') || $(event.target).is('.close')) {
+            $(this).hide();
         }
     });
 
