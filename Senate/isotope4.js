@@ -147,20 +147,18 @@ $(document).ready(function() {
     $gallery.isotope({ sortBy: global_sort_class });
 
     
-    // Toggle modal on card image click
-    $('.gallery').on('click', '.card-image', function() {
+      // Toggle modal on card image click
+      $('.gallery').on('click', '.card-image', function() {
         var $modal = $('#myModal');
         var $modalContent = $modal.find('.modal-body');
-        var $popupContent = $(this).siblings('.popup-content').html();
+        var $popupContent = $(this).closest('.card').find('.popup-content').html();
         $modalContent.html($popupContent);
         $modal.show();
     });
 
     // Close modal when the user clicks anywhere inside or outside the modal
-    $('#myModal').on('click', function(event) {
-        if ($(event.target).is('#myModal') || $(event.target).is('.modal-content') || $(event.target).is('.close')) {
-            $(this).hide();
-        }
+    $('#myModal').on('click', function() {
+        $(this).hide();
     });
 
 });
