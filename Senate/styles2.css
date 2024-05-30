@@ -256,7 +256,10 @@ body {
     .card-image {height: var( --img-height-mobile);}
     .card-body {padding: 8px; padding-bottom: 0px;}
     .gallery{justify-items: center;}
-     #sorts::before {content: "M";display: flex;}
+    #sorts::before {content: "Sort by:";display: flex;}
+    #filters::before {content: "Filters: ";display: flex;}
+    #gender{display:none;}
+    #hair{display:none;}
 }
 
 
