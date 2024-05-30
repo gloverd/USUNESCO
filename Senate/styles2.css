@@ -261,6 +261,7 @@ body {
     #gender{display:none;}
     #hair{display:none;}
     span.cl{display:inline-flex;flex-direction:column;}
+    span.cr {display: inline-flex;flex-direction: column-reverse;}
     .chip.chipdem, .chip.chiprep, .chip.chipind { width:fit-content;}
     .chip{margin-bottom:4px;}
     .chips{margin-top:-70px;}
