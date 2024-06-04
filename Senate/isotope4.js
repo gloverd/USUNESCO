@@ -69,6 +69,31 @@ $(document).ready(function() {
         return value;
     }
 
+
+    
+    // System to Click on Chips
+    /*
+    $('div.chips').on('click', '.chip', function(event) {
+        var $chippy = $(event.currentTarget);
+        var filterGroup = $chippy.attr('data-filter-group');
+        //console.log("Triggered Filter by clicking on CHIP:", $chippy.attr('data-filter-group'), $chippy.attr('data-filter'));
+        filters[filterGroup] = $chippy.attr('data-filter');
+
+        // Combine filters and send to isotope
+        var filterValue = concatValues(filters);
+        $gallery.isotope({ filter: filterValue });
+        $gallery.isotope({ sortBy: global_sort_class });
+
+        //
+        var $button = $("[data-filter-group='" + $chippy.attr('data-filter-group') + "']").find('.button[data-filter="' + $chippy.attr('data-filter') + '"]');
+        var $buttonGroup = $button.parents('.button-group');
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        $button.addClass('is-checked');
+
+    });
+    */
+
+    
     // Function to add IDs to the first instance of each letter
     function addFirstLetterIds(sortedItems, sortByValue) {
         $('.card').removeAttr('id');
