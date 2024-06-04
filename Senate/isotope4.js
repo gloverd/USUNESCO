@@ -57,13 +57,8 @@ $(document).ready(function() {
         // Set filter for Isotope
         $gallery.isotope({ filter: filterValue });
         $gallery.isotope({ sortBy: global_sort_class });
-
-        // // add #IDs to the .cards
-        // var sortedItems = $gallery.isotope('getFilteredItemElements');
-        // $('.card').removeAttr('id');
-        // addFirstLetterIds(sortedItems, global_sort_value);
-
     });
+
         
     // Flatten object by concatenating values
     function concatValues(obj) {
