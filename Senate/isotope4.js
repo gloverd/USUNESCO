@@ -222,5 +222,19 @@ $(document).ready(function() {
         $(this).hide();
     });
 
+
+
+    $('#plusone').click(function() {
+        $('p.description.spouse').toggle();
+
+        if ($('p.description.spouse').is(':visible')) {
+            $(this).addClass('is-checked');
+        } else {
+            $(this).removeClass('is-checked');
+        }
+    });
+
+
+
 });
     
