@@ -223,9 +223,11 @@ $(document).ready(function() {
     });
 
 
-
+    // +1 button enable/disable toggle for family member information
     $('#plusone').click(function() {
         $('p.description.spouse').toggle();
+        $('p.description.staff').toggle();
+        $('p.description.family').toggle();
 
         if ($('p.description.spouse').is(':visible')) {
             $(this).addClass('is-checked');
