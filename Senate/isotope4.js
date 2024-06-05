@@ -93,7 +93,48 @@ $(document).ready(function() {
     });
     */
 
-    
+
+   // System to Click on Chips for Senate Groups
+   $('div.card-body').on('click', 'p.chip.description', function(event) {
+    var $chippy = $(event.currentTarget);
+    var filterGroup = $chippy.attr('data-filter-group');
+    var filterValue = $chippy.attr('data-filter');
+
+    console.log("Triggered Filter by clicking on CHIP:", filterGroup, " with ", filterValue);
+
+
+    //update Chippy Color
+    var $matchChippy = $("[data-filter-group='" + filterGroup+ "']");
+    $matchChippy.find('.selected').removeClass('selected');
+
+
+      // Check if there is already a value for this filterGroup
+      if (filters[filterGroup] === filterValue) {
+        filters[filterGroup] = "";
+        console.log("Filter ", filters[filterGroup], "removed for group:", filterGroup);
+        $chippy.removeClass('selected');
+    } else {
+        // Otherwise, apply the filter
+        filters[filterGroup] = filterValue;
+        console.log("Filter applied for group:", filterGroup, filterValue);
+        
+        $chippy.addClass('selected');
+    }
+
+    // Combine filters and send to isotope
+    var filterValue = concatValues(filters);
+    $gallery.isotope({ filter: filterValue });
+    $gallery.isotope({ sortBy: global_sort_class });
+
+    //update Chippy Color
+    var $matchChippy = $("[data-filter-group='" + filterGroup+ "']");
+    $matchChippy.find('.selected').removeClass('selected');
+
+
+});
+
+
+
     // Function to add IDs to the first instance of each letter
     function addFirstLetterIds(sortedItems, sortByValue) {
         $('.card').removeAttr('id');
