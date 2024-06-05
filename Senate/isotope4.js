@@ -96,8 +96,6 @@ $(document).ready(function() {
                 $chippy.addClass('selected');
             }
 
-    });
-
     var filterValue = concatValues(filters);
     console.log(filterValue);
 
