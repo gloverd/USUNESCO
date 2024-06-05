@@ -1,8 +1,8 @@
 TO DO:
-[X] Refactor using CSS with height:100vh; 
-[ ] Refactor allowing cards to be dynamic sizing
-[X] add a Desktop Print friendly format
-[X] Convert to Senate/House Visit
+- [X] Refactor using CSS with height:100vh; 
+- [ ] Refactor allowing cards to be dynamic sizing
+- [X] add a Desktop Print friendly format
+- [X] Convert to Senate/House Visit
 
 Incorporate Alphabet Scrolling:
 - https://github.com/tariq86/AlphaNav
