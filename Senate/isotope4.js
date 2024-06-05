@@ -80,16 +80,25 @@ $(document).ready(function() {
             console.log("Current filter info: ", filters[filterGroup])
 
             //update Chippy Color
-            var $matchChippy = $("[data-filter-group='" + filterGroup + "']");
-            $matchChippy.find('.selected').removeClass('selected');
+            //var $matchChippy = $("[data-filter-group='" + filterGroup + "']");
+            //$matchChippy.find('.selected').removeClass('selected');
+            $('div.card-body p.chip.description').removeClass('selected');
 
             // Check if there is already a value for this $filterGroup
             if (filters[filterGroup] === filterData) {
                 console.log("Filter Found: ", filters[filterGroup], "removed for group:", filterGroup);
                 filters[filterGroup] = "";
-                $chippy.removeClass('selected');
+                $('div.card-body p.chip.description').removeClass('selected');
+
             } else {
                 // Otherwise, apply the filter
+                // remove any old filter
+                filters[filterGroup] = "";
+                $('div.card-body p.chip.description').removeClass('selected');
+
+                $("p.chip.description[data-filter='" + filterData + "']").addClass('selected');
+
+
                 filters[filterGroup] = $chippy.attr('data-filter');
                 console.log("Applying Filter applied for group:", filterGroup, filterData);
                 console.log("filter info: ", filters[filterGroup]);
