@@ -254,7 +254,7 @@ body {
 
 .card-body .description.spouse::before{content:"👫 ";}
 .card-body .description.staff::before {content:"🛠️ "}
-.card-body .description.fam::before {content:"👪 "}
+.card-body .description.family::before {content:"👪 "}
 
 
 /* Media query for mobile devices */
