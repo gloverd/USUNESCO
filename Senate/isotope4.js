@@ -77,7 +77,7 @@ $(document).ready(function() {
     var filterData = $chippy.attr('data-filter');
 
     console.log("Triggered Filter by clicking on CHIP:", filterGroup, " with ", filterData);
-    console.log("filter info: ", filters[filterGroup])
+    console.log("Current filter info: ", filters[filterGroup])
 
     //update Chippy Color
     var $matchChippy = $("[data-filter-group='" + filterGroup + "']");
@@ -86,24 +86,21 @@ $(document).ready(function() {
       // Check if there is already a value for this $filterGroup
       if (filters[filterGroup] === filterData) {
         filters[filterGroup] = "";
-        console.log("Filter ", filters[filterGroup], "removed for group:", filterGroup);
+        console.log("Filter Found: ", filters[filterGroup], "removed for group:", filterGroup);
         $chippy.removeClass('selected');
     } else {
         // Otherwise, apply the filter
         filters[filterGroup] = filterData;
-        console.log("Filter applied for group:", filterGroup, filterData);
+        console.log("Applying Filter applied for group:", filterGroup, filterData);
+        console.log("filter info: ", filters[filterGroup])
         $chippy.addClass('selected');
     }
 
-    // Combine filters and send to isotope
-    var filterValue = concatValues(filters);
+   /* var filterValue = concatValues(filters);
+    // Set filter for Isotope
     $gallery.isotope({ filter: filterValue });
     $gallery.isotope({ sortBy: global_sort_class });
-
-    //update Chippy Color
-    var $matchChippy = $("[data-filter-group='" + filterGroup+ "']");
-    $matchChippy.find('.selected').removeClass('selected');
-
+    */
 });
 
     
