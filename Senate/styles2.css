@@ -202,6 +202,8 @@ body {
 .name {
   font-weight: bold;
   margin: 0;
+ padding-top: 8px;
+
 }
 
 .title {
@@ -382,7 +384,7 @@ body {
          page-break-inside:avoid; /* Avoid breaking the card across pages */
  
      }
-  .name {font-size: 1.2em;}
+  .name {font-size: 1.2em;     padding-top: 0px;}
   .title { font-size: 1.0em;}
   .description {  font-size: 0.8em;  }
 
