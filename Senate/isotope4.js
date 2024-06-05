@@ -100,14 +100,9 @@ $(document).ready(function() {
     console.log(filterValue);
 
   
-   /*
    // Set filter for Isotope
     $gallery.isotope({ filter: filterValue });
     $gallery.isotope({ sortBy: global_sort_class });
-    */
-
-
-
 
 });
 
