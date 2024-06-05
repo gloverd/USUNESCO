@@ -228,6 +228,9 @@ $(document).ready(function() {
         $('p.description.spouse').toggle();
         $('p.description.staff').toggle();
         $('p.description.family').toggle();
+        
+        //trigger re-sort to re-arrange
+        $gallery.isotope({ sortBy: sortByValue });
 
         if ($('p.description.spouse').is(':visible')) {
             $(this).addClass('is-checked');
