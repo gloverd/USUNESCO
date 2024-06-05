@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 
    // System to Click on Chips for Senate Groups
-   $('div.card-body p.chip.description').on('click', function(event) {
+   $('div.card-body p.chip.description').on('click','p.chip.description', function(event) {
             var $chippy = $(event.currentTarget);
             var filterGroup = $chippy.attr('data-filter-group');
             var filterData = $chippy.attr('data-filter');
