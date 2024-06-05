@@ -299,19 +299,25 @@ body {
         color: white !important;
         -webkit-print-color-adjust: exact;
         color-adjust: exact;
+        font-size:0.8em !important;
       }
       .chiprep {
         background-color: Crimson !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
         color-adjust: exact;
+        font-size:0.8em !important;
       }
       .chipind {
         background-color: #32de84 !important;
         -webkit-print-color-adjust: exact;
         color-adjust: exact;
+        font-size:0.8em !important;
       }
 
+      .statechip{
+        font-size:0.8em !important;
+      }
   html, body {
     
     color: black !important;
@@ -358,8 +364,8 @@ body {
      .card {
          border: 1px solid #000; /* Use black border for better print visibility */
          box-shadow: none; /* Remove box-shadow for print */
-         margin-bottom: 10px; /* Reduce margin-bottom for print */
-         width: 1.75in;
+         margin-bottom: 2px; /* Reduce margin-bottom for print */
+         width: 1.8in;
          min-height: 2.5in;
          page-break-inside: avoid;
          break-inside: avoid;
@@ -367,20 +373,22 @@ body {
      }
      .card-image {
          width: auto; /* Ensure images scale properly */
-         max-height: 150px; /* Adjust image height for print */
+         max-height: 1750px; /* Adjust image height for print */
      }
      .card-body {
-         padding: 10px; /* Adjust padding for print */
+         padding: 5px; /* Adjust padding for print */
          page-break-inside:avoid; /* Avoid breaking the card across pages */
  
      }
-     .name, .title,.description {
-         font-size: 12px; /* Reduce font size for print */
-     }
+  .name {font-size: 1.2em;}
+  .title { font-size: 1.0em;}
+  .description {  font-size: 0.8em;  }
+
      .chips .chip {
          font-size: 10px; /* Reduce chip font size for print */
          padding: 5px; /* Adjust chip padding for print */
      }
 
-
+     .chip.description { border: 1px solid grey; /* Use black border for better print visibility */}
+     .chips{margin-top:-62px;padding-bottom:6px;}
  }
