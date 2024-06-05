@@ -117,7 +117,7 @@ $(document).ready(function() {
         
         $chippy.addClass('selected');
     }
-/*
+
     // Combine filters and send to isotope
     var filterValue = concatValues(filters);
     $gallery.isotope({ filter: filterValue });
@@ -126,7 +126,7 @@ $(document).ready(function() {
     //update Chippy Color
     var $matchChippy = $("[data-filter-group='" + filterGroup+ "']");
     $matchChippy.find('.selected').removeClass('selected');
-*/
+
 });
 
 
