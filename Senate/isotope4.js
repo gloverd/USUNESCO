@@ -97,23 +97,23 @@ $(document).ready(function() {
    $('div.card-body p.chip.description').on('click', function(event) {
     var $chippy = $(event.currentTarget);
     var filterGroup = $chippy.attr('data-filter-group');
-    var filterValue = $chippy.attr('data-filter');
+    var filterData = $chippy.attr('data-filter');
 
-    console.log("Triggered Filter by clicking on CHIP:", filterGroup, " with ", filterValue);
+    console.log("Triggered Filter by clicking on CHIP:", filterGroup, " with ", filterData);
 
     //update Chippy Color
-    var $matchChippy = $("[data-filter-group='" + filterGroup+ "']");
+    var $matchChippy = $("[data-filter-group='" + filterGroup + "']");
     $matchChippy.find('.selected').removeClass('selected');
 
       // Check if there is already a value for this filterGroup
-      if (filters[filterGroup] === filterValue) {
+      if (filters[filterGroup] === filterData) {
         filters[filterGroup] = "";
         console.log("Filter ", filters[filterGroup], "removed for group:", filterGroup);
         $chippy.removeClass('selected');
     } else {
         // Otherwise, apply the filter
-        filters[filterGroup] = filterValue;
-        console.log("Filter applied for group:", filterGroup, filterValue);
+        filters[filterGroup] = filterData;
+        console.log("Filter applied for group:", filterGroup, filterData);
         
         $chippy.addClass('selected');
     }
