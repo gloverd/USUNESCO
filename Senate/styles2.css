@@ -252,6 +252,10 @@ body {
 .card-body .chip.description{padding: 3px 5px; font-size: 0.8em; margin: 0px 2px 2px 0px; display:inline-block;}
 .card-body .chip.description.selected{background-color:lightgreen;}
 
+.card-body .chip.description.spouse {}
+.card-body .chip.description.staff {}
+.card-body .chip.description.fam {}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .card {width: var(--cell-width-mobile);}
