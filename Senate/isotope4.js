@@ -72,7 +72,7 @@ $(document).ready(function() {
 
     
     // System to Click on Chips
-    /*
+/*
     $('div.chips').on('click', '.chip', function(event) {
         var $chippy = $(event.currentTarget);
         var filterGroup = $chippy.attr('data-filter-group');
@@ -91,8 +91,7 @@ $(document).ready(function() {
         $button.addClass('is-checked');
 
     });
-    */
-
+*/
 
    // System to Click on Chips for Senate Groups
    $('div.card-body').on('click', 'p.chip.description', function(event) {
@@ -102,11 +101,9 @@ $(document).ready(function() {
 
     console.log("Triggered Filter by clicking on CHIP:", filterGroup, " with ", filterValue);
 
-
     //update Chippy Color
     var $matchChippy = $("[data-filter-group='" + filterGroup+ "']");
     $matchChippy.find('.selected').removeClass('selected');
-
 
       // Check if there is already a value for this filterGroup
       if (filters[filterGroup] === filterValue) {
@@ -120,7 +117,7 @@ $(document).ready(function() {
         
         $chippy.addClass('selected');
     }
-
+/*
     // Combine filters and send to isotope
     var filterValue = concatValues(filters);
     $gallery.isotope({ filter: filterValue });
@@ -129,8 +126,7 @@ $(document).ready(function() {
     //update Chippy Color
     var $matchChippy = $("[data-filter-group='" + filterGroup+ "']");
     $matchChippy.find('.selected').removeClass('selected');
-
-
+*/
 });
 
 
@@ -230,7 +226,7 @@ $(document).ready(function() {
         $('p.description.family').toggle();
         
         //trigger re-sort to re-arrange
-        $gallery.isotope({ sortBy: sortByValue });
+        $gallery.isotope({ sortBy: global_sort_class });
 
         if ($('p.description.spouse').is(':visible')) {
             $(this).addClass('is-checked');
