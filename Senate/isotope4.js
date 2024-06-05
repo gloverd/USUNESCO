@@ -77,6 +77,7 @@ $(document).ready(function() {
     var filterData = $chippy.attr('data-filter');
 
     console.log("Triggered Filter by clicking on CHIP:", filterGroup, " with ", filterData);
+    console.log("filter info: ", filters[filterGroup])
 
     //update Chippy Color
     var $matchChippy = $("[data-filter-group='" + filterGroup + "']");
@@ -91,7 +92,6 @@ $(document).ready(function() {
         // Otherwise, apply the filter
         filters[filterGroup] = filterData;
         console.log("Filter applied for group:", filterGroup, filterData);
-        
         $chippy.addClass('selected');
     }
 
