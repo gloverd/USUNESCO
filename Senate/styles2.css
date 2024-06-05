@@ -373,7 +373,7 @@ body {
      }
      .card-image {
          width: auto; /* Ensure images scale properly */
-         max-height: 1750px; /* Adjust image height for print */
+         max-height: 175px; /* Adjust image height for print */
      }
      .card-body {
          padding: 5px; /* Adjust padding for print */
