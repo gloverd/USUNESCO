@@ -78,6 +78,7 @@ $(document).ready(function() {
         
         // Combine filters
         var filterValue = concatValues(filters);
+        console.log(filterValue);
         // Set filter for Isotope
         $gallery.isotope({ filter: filterValue, sortBy: global_sort_class });
 
