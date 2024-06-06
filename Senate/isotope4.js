@@ -102,7 +102,29 @@ $(document).ready(function() {
         $gallery.isotope({ sortBy: global_sort_class });
     });
 
-    
+    $('#genderfilters').on('click', '.button', function(event) {  
+        var $button = $(event.currentTarget);
+        var filterGroup = $button.attr('data-filter-group');
+        
+        $(this).toggleClass('is-checked');
+        
+        var maleChecked = $('.button[data-filter-group="gender"][data-filter=".male"]').hasClass('is-checked');
+        var femaleChecked = $('.button[data-filter-group="gender"][data-filter=".female"]').hasClass('is-checked');
+
+        var tempFilter = "";
+        if (maleChecked && femaleChecked) {tempFilter = "";}
+        else if (maleChecked) {tempFilter = ".male";}
+        else if (femaleChecked) {tempFilter = ".female";} 
+        else {
+            $(this).toggleClass('is-checked');
+            tempFilter = $(this).attr('data-filter');
+        }
+
+        filters[filterGroup] = tempFilter;
+        var filterValue = concatValues(filters);
+        $gallery.isotope({ filter: filterValue });
+        $gallery.isotope({ sortBy: global_sort_class });
+    });
 
 
 
