@@ -93,7 +93,7 @@ $(document).ready(function() {
         $gallery.isotope({ filter: filterValue });
         $gallery.isotope({ sortBy: global_sort_class });
         
-    }
+    });
 
     
 
