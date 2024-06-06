@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
-    // Declare global Variables
-    var global_filter = '';
+    // Declare global Variables and its default values
     var global_sort_value = 'lname';
     var global_sort_class = '.lname'; // basically the value with a class '.' before it :)
 
@@ -48,8 +47,8 @@ $(document).ready(function() {
         var $button = $(event.currentTarget);
         // Get group key
         var $buttonGroup = $button.parents('.button-group');
-        var filterGroup = $button.attr('data-filter-group');
-        console.log("Triggered Filter by:", $button.attr('data-filter-group'), $button.attr('data-filter'));
+        var filterGroup = $buttonGroup.attr('data-filter-group');
+        console.log("Triggered Filter by:", $buttonGroup.attr('data-filter-group'), $button.attr('data-filter'));
         // Set filter for group
         filters[filterGroup] = $button.attr('data-filter');
         // Combine filters
@@ -57,6 +56,35 @@ $(document).ready(function() {
         // Set filter for Isotope
         $gallery.isotope({ filter: filterValue });
         $gallery.isotope({ sortBy: global_sort_class });
+    });
+
+    $('#newfilters').on('click', '.button', function(event) {
+        var $button = $(event.currentTarget);
+        var filterGroup = $button.attr('data-filter-group');
+        
+        console.log("NEW Triggered Filter by:", $button.attr('data-filter-group'), $button.attr('data-filter'));
+        
+         
+        if ($button.hasClass('is-checked')) {
+            console.log("Is checked, unchecking")
+            //$button.toggleClass('is-checked');
+            $button.addClass('is-checked');
+            filters[filterGroup] = "";
+        } else {
+            console.log("wasn't checked, need to add in")
+            $button.addClass('is-checked');
+            filters[filterGroup] = $button.attr('data-filter');
+        }
+        
+        
+        
+        // Combine filters
+        var filterValue = concatValues(filters);
+        // Set filter for Isotope
+        $gallery.isotope({ filter: filterValue });
+        $gallery.isotope({ sortBy: global_sort_class });
+
+
     });
         
     // Flatten object by concatenating values
