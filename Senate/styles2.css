@@ -138,10 +138,10 @@ body {
 .button-group button:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
-
+/*
 .button-group button:hover {
   background-color: #0056b3;
-}
+}*/
 
 .header-buttons > button {
   background-color: #007BFF;
@@ -151,10 +151,10 @@ body {
   cursor: pointer;
   box-shadow: 0px 6px 0px 0px rgb(154 154 154);
 }
-
+/*
 .header-buttons > button:hover {
   background-color: #0056b3;
-}
+}*/
 
 .button.is-checked {
     background-color: #004EA3;
