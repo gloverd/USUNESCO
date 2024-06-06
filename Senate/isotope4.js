@@ -68,15 +68,13 @@ $(document).ready(function() {
         if ($button.hasClass('is-checked')) {
             console.log("Is checked, unchecking")
             //$button.toggleClass('is-checked');
-            $button.addClass('is-checked');
+            $button.removeClass('is-checked');
             filters[filterGroup] = "";
         } else {
             console.log("wasn't checked, need to add in")
             $button.addClass('is-checked');
             filters[filterGroup] = $button.attr('data-filter');
         }
-        
-        
         
         // Combine filters
         var filterValue = concatValues(filters);
