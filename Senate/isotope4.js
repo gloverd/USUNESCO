@@ -155,10 +155,18 @@ $(document).ready(function() {
         });
     }
 
+    // Change is-checked class on buttons
+    $('#filters .button').each(function(i, button) {
 
+            if $(this).is('.is-checked')) {
+                $(this).removeClass('is-checked');
+            } else {
+                $(this).addClass('is-checked');
+            }
+    });
         
     // Change is-checked class on buttons
-    $('.button-group').each(function(i, buttonGroup) {
+    $('#sorts .button-group.').each(function(i, buttonGroup) {
         var $buttonGroup = $(buttonGroup);
         $buttonGroup.on('click', 'button', function(event) {
             $buttonGroup.find('.is-checked').removeClass('is-checked');
