@@ -59,29 +59,62 @@ $(document).ready(function() {
     });
 
     $('#newfilters').on('click', '.button', function(event) {
+            
         var $button = $(event.currentTarget);
         var filterGroup = $button.attr('data-filter-group');
         
-        console.log("NEW Triggered Filter by:", $button.attr('data-filter-group'), $button.attr('data-filter'));
+        $(this).toggleClass('is-checked');
         
-        if ($button.hasClass('is-checked')) {
-            console.log("Is checked, unchecking")
-            //$button.toggleClass('is-checked');
-            $button.removeClass('is-checked');
-            filters[filterGroup] = "";
-        } else {
-            console.log("wasn't checked, need to add in")
-            $button.addClass('is-checked');
-            filters[filterGroup] = $button.attr('data-filter');
-        }
-        
-        // Combine filters
-        var filterValue = concatValues(filters);
-        console.log(filterValue);
-        // Set filter for Isotope
-        $gallery.isotope({ filter: filterValue});
+        var demChecked = $('.button[data-filter-group="party_sing"][data-filter=".dem"]').hasClass('is-checked');
+        var repChecked = $('.button[data-filter-group="party_sing"][data-filter=".rep"]').hasClass('is-checked');
 
-    });
+        var tempFilter = "";
+        if (demChecked && repChecked) {
+            console.log("Both are checked");
+            // Handle both checked case
+            tempFilter = "";
+        } else if (demChecked) {
+            console.log("Only party_dem is checked");
+            // Handle only party_dem checked case
+            tempFilter = ".dem";
+        } else if (repChecked) {
+            console.log("Only party_rep is checked");
+            // Handle only party_rep checked case
+            tempFilter = ".rep";
+        } else {
+            console.log("Both are unchecked");
+            // Handle both unchecked case
+            tempFilter = ".ind";
+        }
+
+        filters[filterGroup] = tempFilter;
+        var filterValue = concatValues(filters);
+        // Set filter for Isotope
+        $gallery.isotope({ filter: filterValue });
+        $gallery.isotope({ sortBy: global_sort_class });
+        
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
         
     // Flatten object by concatenating values
     function concatValues(obj) {
@@ -202,11 +235,11 @@ $(document).ready(function() {
 
         
     // Bind a callback to the arrangeComplete event
-    $gallery.on('arrangeComplete', function() {
-        //console.log('arrangeComplete callback triggered');
+    $gallery.one('arrangeComplete', function() {
+        console.log('arrangeComplete callback triggered');
         var $items = $gallery.isotope('getFilteredItemElements');
         $gallery.append($items); // Re-order the DOM elements
-        //console.log('reordered');
+        console.log('reordered');
         addAttributes();
         addFirstLetterIds($items, global_sort_value);
     });
