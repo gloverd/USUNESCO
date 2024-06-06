@@ -156,7 +156,7 @@ $(document).ready(function() {
     }
 
     // Change is-checked class on buttons
-    $('#filters .button').each(function(i, button) {
+    $('#filters > .button').each(function(i, button) {
 
             if $(this).hasClass('is-checked')) {
                 $(this).removeClass('is-checked');
@@ -166,7 +166,7 @@ $(document).ready(function() {
     });
         
     // Change is-checked class on buttons
-    $('#sorts .button-group.').each(function(i, buttonGroup) {
+    $('#sorts > .button-group.').each(function(i, buttonGroup) {
         var $buttonGroup = $(buttonGroup);
         $buttonGroup.on('click', 'button', function(event) {
             $buttonGroup.find('.is-checked').removeClass('is-checked');
