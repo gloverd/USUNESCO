@@ -169,7 +169,7 @@ $(document).ready(function() {
 
     // Change is-checked class on header buttons buttons
     $('#filters > .button-group').on('click', 'button', function(event) {
-        if ($this.hasClass('is-checked')) {
+        if ($(this).hasClass('is-checked')) {
             $(this).removeClass('is-checked');
         } else {
             $(this).addClass('is-checked');
