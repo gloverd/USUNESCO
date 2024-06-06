@@ -273,8 +273,8 @@ body {
   .card-image {height: var( --img-height-mobile);}
   .card-body {padding: 8px; padding-bottom: 0px;}
   .gallery{justify-items: center;padding: 20px 4px;}
-  #sorts::before {content: "Sort by:";display: flex;}
-  #filters::before {content: "Filters: ";display: flex;}
+  /*#sorts::before {content: "Sort by:";display: flex;}*/
+  /*#filters::before {content: "Filters: ";display: flex;}*/
   #gender{display:none;}
   #hair{display:none;}
   span.cl{display:inline-flex;flex-direction:column;}
