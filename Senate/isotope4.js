@@ -58,41 +58,48 @@ $(document).ready(function() {
         $gallery.isotope({ sortBy: global_sort_class });
     });
 
-    $('#newfilters').on('click', '.button', function(event) {
-            
+    $('#partyfilters').on('click', '.button', function(event) {  
+        var $button = $(event.currentTarget);
+        var filterGroup = $button.attr('data-filter-group');
+        $(this).toggleClass('is-checked');
+        
+        var demChecked = $('.button[data-filter-group="party"][data-filter=".dem"]').hasClass('is-checked');
+        var repChecked = $('.button[data-filter-group="party"][data-filter=".rep"]').hasClass('is-checked');
+
+        var tempFilter = "";
+        if (demChecked && repChecked) {tempFilter = "";}
+        else if (demChecked) {tempFilter = ".dem";}
+        else if (repChecked) {tempFilter = ".rep";} 
+        else {tempFilter = ".ind";}
+
+        filters[filterGroup] = tempFilter;
+        var filterValue = concatValues(filters);
+        $gallery.isotope({ filter: filterValue });
+        $gallery.isotope({ sortBy: global_sort_class });
+    });
+
+    $('#senatefilters').on('click', '.button', function(event) {  
         var $button = $(event.currentTarget);
         var filterGroup = $button.attr('data-filter-group');
         
         $(this).toggleClass('is-checked');
         
-        var demChecked = $('.button[data-filter-group="party_sing"][data-filter=".dem"]').hasClass('is-checked');
-        var repChecked = $('.button[data-filter-group="party_sing"][data-filter=".rep"]').hasClass('is-checked');
+        var senChecked = $('.button[data-filter-group="congress"][data-filter=".Senator"]').hasClass('is-checked');
+        var repChecked = $('.button[data-filter-group="congress"][data-filter=".Representative"]').hasClass('is-checked');
 
         var tempFilter = "";
-        if (demChecked && repChecked) {
-            console.log("Both are checked");
-            // Handle both checked case
-            tempFilter = "";
-        } else if (demChecked) {
-            console.log("Only party_dem is checked");
-            // Handle only party_dem checked case
-            tempFilter = ".dem";
-        } else if (repChecked) {
-            console.log("Only party_rep is checked");
-            // Handle only party_rep checked case
-            tempFilter = ".rep";
-        } else {
-            console.log("Both are unchecked");
-            // Handle both unchecked case
-            tempFilter = ".ind";
+        if (senChecked && repChecked) {tempFilter = "";}
+        else if (senChecked) {tempFilter = ".Senator";}
+        else if (repChecked) {tempFilter = ".Representative";} 
+        else {
+            $(this).toggleClass('is-checked');
+            tempFilter = $(this).attr('data-filter');
         }
 
         filters[filterGroup] = tempFilter;
         var filterValue = concatValues(filters);
-        // Set filter for Isotope
         $gallery.isotope({ filter: filterValue });
         $gallery.isotope({ sortBy: global_sort_class });
-        
     });
 
     
