@@ -184,7 +184,16 @@ $(document).ready(function() {
 
         
     // Change is-checked class on header buttons buttons
-    $('.button-group').each(function(i, buttonGroup) {
+    $('#filters .button-group').each(function(i, buttonGroup) {
+        var $buttonGroup = $(buttonGroup);
+        $buttonGroup.on('click', 'button', function(event) {
+            $buttonGroup.find('.is-checked').removeClass('is-checked');
+            var $button = $(event.currentTarget);
+            $button.addClass('is-checked');
+        });
+    });
+
+    $('#sorts .button-group').each(function(i, buttonGroup) {
         var $buttonGroup = $(buttonGroup);
         $buttonGroup.on('click', 'button', function(event) {
             $buttonGroup.find('.is-checked').removeClass('is-checked');
