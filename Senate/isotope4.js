@@ -158,7 +158,7 @@ $(document).ready(function() {
     // Change is-checked class on buttons
     $('#filters .button').each(function(i, button) {
 
-            if $(this).is('.is-checked')) {
+            if $(this).hasClass('is-checked')) {
                 $(this).removeClass('is-checked');
             } else {
                 $(this).addClass('is-checked');
