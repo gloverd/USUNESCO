@@ -166,6 +166,16 @@ $(document).ready(function() {
             $button.addClass('is-checked');
         });
     });
+
+    // Change is-checked class on header buttons buttons
+    $('#filters > .button-group').on('click', 'button', function(event) {
+        if ($this.hasClass('is-checked')) {
+            $(this).removeClass('is-checked');
+        } else {
+            $(this).addClass('is-checked');
+        }
+    });
+
         
     // Bind a callback to the arrangeComplete event
     $gallery.on('arrangeComplete', function() {
