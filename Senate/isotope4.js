@@ -64,7 +64,6 @@ $(document).ready(function() {
         
         console.log("NEW Triggered Filter by:", $button.attr('data-filter-group'), $button.attr('data-filter'));
         
-         
         if ($button.hasClass('is-checked')) {
             console.log("Is checked, unchecking")
             //$button.toggleClass('is-checked');
@@ -80,8 +79,7 @@ $(document).ready(function() {
         var filterValue = concatValues(filters);
         console.log(filterValue);
         // Set filter for Isotope
-        $gallery.isotope({ filter: filterValue, sortBy: global_sort_class });
-
+        $gallery.isotope({ filter: filterValue});
 
     });
         
@@ -205,10 +203,10 @@ $(document).ready(function() {
         
     // Bind a callback to the arrangeComplete event
     $gallery.on('arrangeComplete', function() {
-        console.log('arrangeComplete callback triggered');
+        //console.log('arrangeComplete callback triggered');
         var $items = $gallery.isotope('getFilteredItemElements');
         $gallery.append($items); // Re-order the DOM elements
-        console.log('reordered');
+        //console.log('reordered');
         addAttributes();
         addFirstLetterIds($items, global_sort_value);
     });
@@ -216,7 +214,7 @@ $(document).ready(function() {
             
     // Function to add attributes and rebuild the index
     function addAttributes() {
-        console.log("adding attributes for: ", global_sort_class);
+        //console.log("adding attributes for: ", global_sort_class);
         var previous = "";
         $(".abc-index").find('button[data-alpha]').attr('disabled', 'disabled');
         $gallery.isotope('getFilteredItemElements').forEach(function(item) {
