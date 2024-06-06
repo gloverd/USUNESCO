@@ -58,7 +58,6 @@ $(document).ready(function() {
         $gallery.isotope({ filter: filterValue });
         $gallery.isotope({ sortBy: global_sort_class });
     });
-
         
     // Flatten object by concatenating values
     function concatValues(obj) {
@@ -68,7 +67,6 @@ $(document).ready(function() {
         }
         return value;
     }
-
 
    // System to Click on Chips for Senate Groups
    $('div.card-body p.chip.description').on('click', function(event) {
@@ -158,7 +156,7 @@ $(document).ready(function() {
 
         
     // Change is-checked class on header buttons buttons
-    $('#sorts > .button-group').each(function(i, buttonGroup) {
+    $('.button-group').each(function(i, buttonGroup) {
         var $buttonGroup = $(buttonGroup);
         $buttonGroup.on('click', 'button', function(event) {
             $buttonGroup.find('.is-checked').removeClass('is-checked');
@@ -167,14 +165,7 @@ $(document).ready(function() {
         });
     });
 
-    // Change is-checked class on header buttons buttons
-    $('#filters > .button-group').on('click', 'button', function(event) {
-        if ($(this).hasClass('is-checked')) {
-            $(this).removeClass('is-checked');
-        } else {
-            $(this).addClass('is-checked');
-        }
-    });
+
 
         
     // Bind a callback to the arrangeComplete event
