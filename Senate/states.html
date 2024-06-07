@@ -6,38 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNESCO Sites and Chairs</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-        th, td:nth-child(1) {
-            background-color: #f9f9f9;
-        }
-        th:nth-child(1) {
-            z-index: 2;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Ensures table is not too cramped on small screens */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+th, td:nth-child(1) {
+    background-color: #f9f9f9;
+}
+
+th:nth-child(1) {
+    z-index: 2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+td:first-child:not(:empty) {
+    background-color: #d3d3d3;
+}
+
+@media (max-width: 600px) {
+    table, th, td {
+        font-size: 12px;
+    }
+    th, td {
+        padding: 6px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -225,7 +252,496 @@
             <td></td>
             <td></td>
         </tr>
-    </tbody>
+        Here is the HTML code for the additional rows you can add before the `</table>` tag:
+
+```html
+<tr>
+    <td>ILLINOIS</td>
+    <td>The 20th-Century Architecture of Frank Lloyd Wright (2019)(Cultural)(Unity Temple, Fredrick C. Robie House)</td>
+    <td></td>
+    <td></td>
+    <td>UNESCO chair on fundamental and interdisciplinary physics for the Americas: northwestern university, Evanston (2019) Chair Mayda Velasco</td>
+    <td>Richard J. Durbin (D-IL)<br>Tammy Duckworth (D-IL)</td>
+    <td>Chicago Early Skyscrapers (cultural)</td>
+</tr>
+<tr>
+    <td>INDIANA</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>IOWA</td>
+    <td></td>
+    <td></td>
+    <td>Lowa City City of Literature</td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>KANSAS</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>KENTUCKY</td>
+    <td>Mammoth Cave National Park (1981) (Natural)</td>
+    <td>Cave area</td>
+    <td>Paducah City of Crafts and folk art</td>
+    <td></td>
+    <td>Mitch McConnell (R-KY)<br>Rand Paul (R-KY)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>LOUISIANA</td>
+    <td>Monumental Earthworks of Poverty Point (2014) (Cultural)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>John Kennedy (R-LA)<br>Bill Cassidy (R-LA)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>MAINE</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>MARYLAND</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>MASSACHUSSETS</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>UNESCO chair on life sciences and social innovation: Harvard university, Cambridge (theme biochemistry) (2019) Chair holder: Alain Viel</td>
+    <td>Elizabeth Warren (D-MA)<br>Ed Markey (D-MA)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>MICHIGAN</td>
+    <td></td>
+    <td>Isle Royale</td>
+    <td>Detroit City of design</td>
+    <td></td>
+    <td>Debbie Stabenow (D-MI)<br>Gary Peters (D-MI)</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td>Obtawaing</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td>Sonoran Desert</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>MINNESOTA</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>MISSISSIPPI</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>MISSOURI</td>
+    <td></td>
+    <td></td>
+    <td>Kansas city, city of music</td>
+    <td></td>
+    <td>Josh Hawley (R-MO)<br>Eric Schmitt (R-MO)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>MONTANA</td>
+    <td>Yellowstone National Park (1978) (Natural)</td>
+    <td>Crown of the continent</td>
+    <td></td>
+    <td></td>
+    <td>Jon Tester (D-MT)<br>Steve Daines (R-MT)</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td>Waterton Glacier International Peace Park (1995) (Natural)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>NEBRASKA</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>NEW HAMSHIRE</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>NEW JERSEY</td>
+    <td></td>
+    <td>New Jersey Pinelands</td>
+    <td></td>
+    <td>UNESCO chair in genocide prevention: Rutgers university Newark (2012) Chair holder: Alexander Hinton</td>
+    <td>Robert Menendez (D-NJ)<br>Cory Booker</td>
+    <td>Ellis Island (New Jersey and New York) (cultural)</tr>
+<tr>
+    <td>NEW MEXICO</td>
+    <td>Carlsbad caverns national park (1995) (natural)</td>
+    <td>Jornada</td>
+    <td>Santa fe city of Crafts and folk arts</td>
+    <td></td>
+    <td>Ben Ray Lujan (D-NM)<br>Martin Heinrich (D-NM)</td>
+    <td>White Sands National Monument (Natural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td>Taos Pueblo (1992) (Cultural)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td>Chaco Culture National Park (1987) (Cultural)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>NEW YORK</td>
+    <td>The 20th-Century Architecture of Frank Lloyd Wright (2019)(Cultural) (Guggenheim Museum)</td>
+    <td>Champlain-Adirondak</td>
+    <td></td>
+    <td>Kristen Gillibrand (D-NY)<br>Charles Schumer (D-NY)</td>
+    <td>Brooklyn Bridge (cultural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td>Statue of Liberty (1984) (Cultural)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Central Park (cultural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Ellis Island (New Jersey and New York) (cultural)</td>
+</tr>
+<tr>
+    <td>NORTH CAROLINA</td>
+    <td>Great Smoky Mountains National Park (1983) (Natural)</td>
+    <td></td>
+    <td></td>
+    <td>Thom Tillis (R-NC)<br>Ted Budd (R-NC)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>NORTH DAKOTA</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>OHIO</td>
+    <td>Hopewell Ceremonial Earthworks (2023) (Cultural)</td>
+    <td></td>
+    <td></td>
+    <td>Sherrod Brown (D-OH)<br>J.D. Vance (R-OH)</td>
+    <td>Dayton Aviation Sites (cultural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Hopewell Ceremonial Earthworks (cultural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Serpent Mound (cultural)</td>
+</tr>
+<tr>
+    <td>OKLAHOMA</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>OREGON</td>
+    <td></td>
+    <td>Cascade Head</td>
+    <td></td>
+    <td>UNESCO chair in transcultural studies interreligious dialogue and peace: university of Oregon eugene (2007) Chair holder: Steven Shankman</td>
+    <td>Ron Wyden (D-OR)<br>Jeff Merkley (D-OR)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>PENNSYLVANIA</td>
+    <td>Independence Hall (1979) (Cultural)</td>
+    <td></td>
+    <td>UNESCO chair on building innovation and manufacturing capacities through advanced technology education: the Pennsylvania state university, state college (2018) : Osama Awadelkarim</td>
+    <td>Robert Casey (D-PA)<br>John Fetterman (D-PA)</td>
+    <td>Moravian Bethlehem District (cultural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td>The 20th-Century Architecture of Frank Lloyd Wright (2019)(Cultural) (Fallingwater)</td>
+    <td></td>
+    <td>UNESCO Chair on Global Citizenship Education for Sustainable Peace through Youth and Community Engagement: The Pennsylvania State University, (theme: youth) (2013) Chair : Dr. Mark Brennan</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>UNESCO chair in learning and literacy: university of Pennsylvania, Philadelphia (theme : education) (2011) Chair holder: Dr. Dan Wagner</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>PUERTO RICO</td>
+    <td>La Fortaleza and San Juan National Historic Site in Puerto Rico (1983)(Cultural)</td>
+    <td>Guánica</td>
+    <td></td>
+    <td>Chaire d’UNESCO d’enseignement superieur: Universidad de Puerto Rico (1999) Chair : Dr. A.S. Edward Aponte Hernandez</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td>Luquillo</td>
+    <td></td>
+    <td>UNESCO chair d’education pour la paix : Universidad de Puerto Rico (1996) Chair holder: Prof. Anita Yudkin Suliveres</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>RHODE ISLAND</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>SOUTH CAROLINA</td>
+    <td></td>
+    <td>Congaree</td>
+    <td></td>
+    <td>UNESCO chair for data, media and society: university of south Carolina, Columbia (theme : communication) (2021) position open</td>
+    <td>Lindsey Graham (R-SC)<br>Tim Scott (R-SC)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>SOUTH DAKOTA</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>TENNESSEE</td>
+    <td>Great Smoky Mountains National Park (1983) (Natural)</td>
+    <td>Southern Appalachian</td>
+    <td></td>
+    <td>Bill Hagerty (R-TN)<br>Marsha Blackburn (R-TN)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>TEXAS</td>
+    <td>San Antonio Missions (2015)</td>
+    <td>Big Bend</td>
+    <td>Austin, city of media arts</td>
+    <td>UNESCO chair on water and human settlements: university of Texas at Arlington (theme biodiversity, gender equality, resilience) (2018) Chair : Prof. Adrian Parr</td>
+    <td>Ted Cruz (R-TX)<br>John Cornyn (R-TX)</td>
+    <td>Big Bend National Park (Natural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td>Big Thicket</td>
+    <td>San Antonio city of Gastronomy</td>
+    <td>UNESCO chair in communication: University of Texas at Austin (theme: communication development, freedom of expression journalism) (2000) Chair holder: Prof. Rosental Calmon Alves</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>UTAH</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>VERMONT</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>VIRGINIA</td>
+    <td>Monticello and the University of Virginia in Charlottesville (1987) (Cultural)</td>
+    <td>Virginia Coast</td>
+    <td></td>
+    <td>Tim Kaine (D-VA)<br>Mark Warner (D-VA)</td>
+    <td>Jefferson (Thomas) Buildings (Virginia, extension) (Cultural)</td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Mount Vernon (Cultural)</td>
+</tr>
+<tr>
+    <td>WASHINGTON</td>
+    <td>Olympic National Park (1981) (Natural)</td>
+    <td>Olympic</td>
+    <td>Seattle city of Literature</td>
+    <td>Patty Murray (D-WA)<br>Maria Cantwell (D-WA)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>WEST VIRGINIA</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>WISCONSIN</td>
+    <td>The 20th-Century Architecture of Frank Lloyd Wright (2019)(Cultural)(Taliesin, Herbert and Katherine Jacobs house)</td>
+    <td></td>
+    <td></td>
+    <td>UNESCO chair on gender, wellbeing and a culture of peace: university of Wisconsin-Madison (theme: gender equality) (2016) co-holders: Prof. Araceli Alonso and Dr. Teresa Langle de Paz</td>
+    <td>Tammy Baldwin (D-WI)<br>Ron Johnson (R-WI)</td>
+    <td></td>
+</tr>
+<tr>
+    <td>WYOMING</td>
+    <td>Yellowstone National Park (1978) (Natural) (Montana, Idaho)</td>
+    <td>Yellowstone - Grand Teton</td>
+    <td></td>
+    <td>(R-WY) John Barrasso<br>(R-WY) Cynthia Lummis</td>
+    <td></td>
+</tr>
+<tr>
+    <td>Washington DC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>UNESCO chair on international education for development: the George Washington university, Washington (theme: education) (2014) Chair : Dr. James H. Williams</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>UNESCO chair on sustainable development, early childhood, inclusive education and gender: Georgetown university Washington (theme: education) (2006) Chair holder: Dr. Phyllis Magrab</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>UNESCO chair in transnational challenges and governance: American university, Washington (2011) Chair holder: Prof. Amitav Acharya</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Paris</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>UNESCO Chair in Artificial Intelligence and Human Rights: The American University of Paris, Paris, United States of America (2024) Chair holders: Prof. Claudia Roda and Prof. Susan Perry</td>
+    <td></td>
+    <td></td>
+</tr>
+
+
 </table>
 
 </body>
